@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alrix Accountants | UK Chartered Tax & Accounting Practice</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Newsreader (Editorial Authority), Plus Jakarta Sans (Clean UI), JetBrains Mono (Figures) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldDeep: '#06211C',
+                        emeraldRich: '#0A2E27',
+                        goldAccent: '#D49A45',
+                        goldLight: '#E8B96A',
+                        ivoryBg: '#F8F6F1',
+                        paperCard: '#FFFFFF',
+                        inkDark: '#111816',
+                        inkMuted: '#525E5A'
+                    },
+                    fontFamily: {
+                        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            background-color: #F8F6F1;
+            color: #111816;
+            overflow-x: clip;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
+        }
+        /* High-Conversion CTA Button Styling */
+        .cta-primary {
+            background: linear-gradient(110deg, #D49A45 0%, #F1C97E 45%, #D49A45 60%, #B87924 100%);
+            background-size: 220% 100%;
+            color: #06211C;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 28px -6px rgba(212, 154, 69, 0.5);
+        }
+        .cta-primary:hover {
+            background-position: 100% 0;
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 20px 40px -8px rgba(212, 154, 69, 0.7);
+        }
+        .cta-dark {
+            background-color: #06211C;
+            color: #F8F6F1;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .cta-dark:hover {
+            background-color: #D49A45;
+            color: #06211C;
+            transform: translateY(-2px);
+        }
+        /* 3D Desk & Monitor Portal Perspective Stage */
+        .desk-perspective {
+            perspective: 1400px;
+            transform-style: preserve-3d;
+        }
+        #monitor-assembly {
+            transform-style: preserve-3d;
+            will-change: transform, box-shadow;
+            transform-origin: center center;
+        }
+        #desk-left-props, #desk-right-props, #mobile-desk-props, #hero-top-pitch {
+            will-change: transform, opacity;
+        }
+        .zoom-scale-text {
+            will-change: transform;
+            transform-origin: left center;
+        }
+        /* Floating Idle Animation for Desk Props */
+        @keyframes paperFloatLeft {
+            0%, 100% { transform: translateY(0px) rotate(-5deg); }
+            50% { transform: translateY(-8px) rotate(-3.5deg); }
+        }
+        @keyframes stampFloatRight {
+            0%, 100% { transform: translateY(0px) rotate(5deg); }
+            50% { transform: translateY(-7px) rotate(3.5deg); }
+        }
+        @keyframes penWriteMotion {
+            0%, 100% { transform: translate(0px, 0px) rotate(10deg); }
+            25% { transform: translate(6px, -3px) rotate(7deg); }
+            50% { transform: translate(12px, 1px) rotate(12deg); }
+            75% { transform: translate(4px, -2px) rotate(8deg); }
+        }
+        @keyframes inkStrokeDraw {
+            0% { stroke-dashoffset: 180; }
+            60%, 100% { stroke-dashoffset: 0; }
+        }
+        @keyframes screenScanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(500%); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.45); }
+            50% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+        }
+        .paper-float-anim {
+            animation: paperFloatLeft 5.5s ease-in-out infinite;
+        }
+        .stamp-float-anim {
+            animation: stampFloatRight 6s ease-in-out infinite;
+        }
+        .pen-write-anim {
+            animation: penWriteMotion 4s ease-in-out infinite;
+        }
+        .ink-signature-path {
+            stroke-dasharray: 180;
+            stroke-dashoffset: 180;
+            animation: inkStrokeDraw 4s ease-in-out infinite;
+        }
+        .scanline-bar {
+            animation: screenScanline 7s linear infinite;
+        }
+        .pulse-badge {
+            animation: pulseGlow 2.4s infinite;
+        }
+        /* Ruled Working Paper Background */
+        .working-paper-lines {
+            background-image: repeating-linear-gradient(
+                to bottom,
+                transparent 0px,
+                transparent 25px,
+                rgba(6, 33, 28, 0.11) 26px
+            );
+        }
+        .card-lift {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px -12px rgba(6, 33, 28, 0.16);
+        }
+        /* Scroll Reveal Animations for Sections Emerging from the Monitor */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(28px) scale(0.98);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-item.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        /* Monitor Portal Frame Connector */
+        .portal-bridge {
+            background: linear-gradient(180deg, #06211C 0%, #041511 100%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-[#06211C] selection:text-[#E8B96A] pb-16 sm:pb-0">
+
+    <!-- Top Reading Progress Bar -->
+    <div id="scroll-bar" class="fixed top-0 left-0 h-[3px] bg-[#D49A45] z-50 transition-all duration-75" style="width: 0%;"></div>
+
+    <!-- ====================================================================
+         TIER 1: TOP UK PRACTICE BAR
+    ==================================================================== -->
+    <div class="bg-[#06211C] text-[#F8F6F1] border-b border-[#173A32] text-xs">
+        <div class="max-w-[1400px] mx-auto px-3 sm:px-8 min-h-[36px] flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 min-w-0">
+                <span class="w-2 h-2 bg-[#10B981] inline-block animate-pulse shrink-0"></span>
+                <span class="font-medium tracking-wide text-[#F8F6F1]/90 truncate text-[11px] sm:text-xs">
+                    UK Chartered &amp; Statutory Accountants • HMRC MTD Registered
+                </span>
+            </div>
+            <div class="flex items-center gap-4 font-mono text-[11px] shrink-0">
+                <a href="mailto:business@alrixaccountants.co.uk" class="text-[#E8B96A] hover:underline font-semibold">
+                    ✉ <span class="hidden xs:inline">business@alrixaccountants.co.uk</span><span class="xs:hidden">Email Us</span>
+                </a>
+                <span class="hidden md:inline text-[#F8F6F1]/70">Mon–Fri: 09:00–17:30 UK</span>
+                <button onclick="navigateTo('careers')" class="hidden sm:inline text-[#F8F6F1]/80 hover:text-[#E8B96A]">
+                    Careers
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         TIER 2: STICKY NAVIGATION HEADER (WITH OFFICIAL CLOUD LOGO)
+    ==================================================================== -->
+    <header class="sticky top-0 z-40 bg-[#F8F6F1]/95 backdrop-blur-md border-b border-[#DED9CE] shadow-sm">
+        <div class="max-w-[1400px] mx-auto px-3 sm:px-8 min-h-[70px] sm:min-h-[80px] flex items-center justify-between gap-2">
+            <!-- Brand Wordmark & Official Cloud Logo -->
+            <button onclick="navigateTo('home')" class="flex items-center gap-3 text-left group py-1.5 min-w-0">
+                <div class="h-11 w-11 sm:h-12 sm:w-12 bg-[#06211C] border border-[#D49A45] p-1 flex items-center justify-center shrink-0 shadow-sm group-hover:border-[#E8B96A] transition-all">
+                    <img
+                        src="https://i.ibb.co/4wPLrhF4/ALRIZ.png"
+                        alt="ALRIX Accountants Logo"
+                        class="max-h-full max-w-full object-contain"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                    >
+                    <span style="display:none;" class="font-serif text-2xl text-[#E8B96A] leading-none">A</span>
+                </div>
+                <div class="truncate">
+                    <div class="font-serif text-xl sm:text-[27px] text-[#06211C] tracking-tight leading-none truncate">
+                        Alrix Accountants
+                    </div>
+                    <div class="font-mono text-[8.5px] sm:text-[9.5px] tracking-[0.16em] text-[#525E5A] uppercase mt-1 font-semibold truncate">
+                        UK TAX &amp; STATUTORY ADVISORY
+                    </div>
+                </div>
+            </button>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-[#111816]">
+                <button onclick="navigateTo('home')" id="nav-home" class="px-4 py-2 hover:text-[#D49A45] transition-colors">
+                    Home
+                </button>
+                <button onclick="navigateTo('about')" id="nav-about" class="px-4 py-2 hover:text-[#D49A45] transition-colors">
+                    Why Hire Alrix
+                </button>
+
+                <!-- Services Dropdown -->
+                <div class="relative group">
+                    <button class="px-4 py-2 hover:text-[#D49A45] transition-colors flex items-center gap-1.5">
+                        <span>Our Services</span>
+                        <span class="text-[10px] text-[#525E5A] group-hover:rotate-180 transition-transform">▼</span>
+                    </button>
+                    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[680px] hidden group-hover:block z-50">
+                        <div class="bg-white border-2 border-[#06211C] shadow-2xl">
+                            <div class="bg-[#06211C] text-[#F8F6F1] px-5 py-3 flex items-center justify-between text-xs font-mono">
+                                <span class="text-[#E8B96A] uppercase tracking-wider">6 CORE UK ACCOUNTANCY SERVICES</span>
+                                <span>FIXED MONTHLY FEES</span>
+                            </div>
+                            <div class="grid grid-cols-2 divide-x divide-y divide-[#E5E0D5]">
+                                <button onclick="navigateTo('service-vat')" class="p-4 text-left hover:bg-[#F8F6F1] transition-colors">
+                                    <div class="font-mono text-[10px] text-[#D49A45] font-bold">01 // HMRC MTD</div>
+                                    <div class="font-bold text-[#06211C] text-base mt-0.5">VAT Returns &amp; Advice</div>
+                                    <p class="text-xs text-[#525E5A] mt-1 font-normal">Quarterly MTD filings, scheme reviews &amp; HMRC compliance.</p>
+                                </button>
+                                <button onclick="navigateTo('service-payroll')" class="p-4 text-left hover:bg-[#F8F6F1] transition-colors">
+                                    <div class="font-mono text-[10px] text-[#D49A45] font-bold">02 // PAYE &amp; CIS</div>
+                                    <div class="font-bold text-[#06211C] text-base mt-0.5">Payroll &amp; Auto-Enrolment</div>
+                                    <p class="text-xs text-[#525E5A] mt-1 font-normal">Payslips, RTI submissions, workplace pensions &amp; CIS.</p>
+                                </button>
+                                <button onclick="navigateTo('service-bookkeeping')" class="p-4 text-left hover:bg-[#F8F6F1] transition-colors">
+                                    <div class="font-mono text-[10px] text-[#D49A45] font-bold">03 // CLOUD LEDGERS</div>
+                                    <div class="font-bold text-[#06211C] text-base mt-0.5">Bookkeeping</div>
+                                    <p class="text-xs text-[#525E5A] mt-1 font-normal">Xero &amp; QuickBooks management, bank feeds &amp; VAT receipts.</p>
+                                </button>
+                                <button onclick="navigateTo('service-accounts')" class="p-4 text-left hover:bg-[#F8F6F1] transition-colors">
+                                    <div class="font-mono text-[10px] text-[#D49A45] font-bold">04 // COMPANIES HOUSE</div>
+                                    <div class="font-bold text-[#06211C] text-base mt-0.5">Financial Accounts</div>
+                                    <p class="text-xs text-[#525E5A] mt-1 font-normal">FRS 102 / 105 statutory year-end accounts &amp; CT600 filing.</p>
+                                </button>
+                                <button onclick="navigateTo('service-tax-planning')" class="p-4 text-left hover:bg-[#F8F6F1] transition-colors">
+                                    <div class="font-mono text-[10px] text-[#D49A45] font-bold">05 // TAX SAVING</div>
+                                    <div class="font-bold text-[#06211C] text-base mt-0.5">Tax Planning &amp; Advice</div>
+                                    <p class="text-xs text-[#525E5A] mt-1 font-normal">Corporation tax reduction, salary/dividends &amp; pensions.</p>
+                                </button>
+                                <button onclick="navigateTo('service-personal-tax')" class="p-4 text-left hover:bg-[#F8F6F1] transition-colors">
+                                    <div class="font-mono text-[10px] text-[#D49A45] font-bold">06 // SELF ASSESSMENT</div>
+                                    <div class="font-bold text-[#06211C] text-base mt-0.5">Personal Tax Returns</div>
+                                    <p class="text-xs text-[#525E5A] mt-1 font-normal">SA100 filings for company directors, landlords &amp; investors.</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="scrollToSection('switching-section')" class="px-4 py-2 hover:text-[#D49A45] transition-colors">
+                    How to Switch
+                </button>
+                <button onclick="scrollToSection('faq-section')" class="px-4 py-2 hover:text-[#D49A45] transition-colors">
+                    FAQ
+                </button>
+                <button onclick="navigateTo('careers')" id="nav-careers" class="px-4 py-2 hover:text-[#D49A45] transition-colors">
+                    Careers
+                </button>
+            </nav>
+
+            <!-- High-Converting Header CTAs -->
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <button onclick="openQuoteModal('Free 20-Min Tax & Accounting Review')" class="hidden sm:inline-flex items-center gap-2 px-5 md:px-6 min-h-[46px] cta-primary font-bold text-xs uppercase tracking-wider">
+                    <span>Get Fixed-Fee Quote</span>
+                    <span class="text-base leading-none">→</span>
+                </button>
+                <button onclick="toggleMobileMenu()" id="mobile-menu-btn" class="lg:hidden px-3.5 min-h-[44px] border-2 border-[#06211C] bg-white text-[#06211C] font-mono text-xs font-bold uppercase flex items-center gap-1.5">
+                    <span>Menu</span>
+                    <span>☰</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile & Tablet Slide-Down Drawer -->
+        <div id="mobile-drawer" class="hidden lg:hidden bg-white border-b-2 border-[#06211C] px-4 sm:px-6 py-5 space-y-4 max-h-[82vh] overflow-y-auto shadow-2xl">
+            <div class="flex items-center justify-between border-b border-[#E5E0D5] pb-3">
+                <div class="flex items-center gap-2.5">
+                    <img src="https://i.ibb.co/4wPLrhF4/ALRIZ.png" alt="ALRIX" class="h-8 w-8 object-contain bg-[#06211C] p-1 border border-[#D49A45]">
+                    <span class="font-mono text-xs uppercase font-bold text-[#06211C]">Navigation &amp; UK Tax Services</span>
+                </div>
+                <button onclick="toggleMobileMenu()" class="font-mono text-xs px-2.5 py-1 bg-[#F8F6F1] border border-[#DED9CE] font-bold">✕ Close</button>
+            </div>
+            <div class="grid grid-cols-2 gap-2 border-b border-[#E5E0D5] pb-4 text-sm">
+                <button onclick="navigateTo('home')" class="p-2.5 bg-[#F8F6F1] text-left font-bold text-[#06211C]">🏠 Home</button>
+                <button onclick="navigateTo('about')" class="p-2.5 bg-[#F8F6F1] text-left font-bold text-[#06211C]">✓ Why Hire Alrix</button>
+                <button onclick="scrollToSection('switching-section')" class="p-2.5 bg-[#F8F6F1] text-left font-bold text-[#06211C]">⇄ Switch in 48h</button>
+                <button onclick="navigateTo('careers')" class="p-2.5 bg-[#F8F6F1] text-left font-bold text-[#06211C]">Careers</button>
+            </div>
+            <div>
+                <div class="font-mono text-[11px] uppercase tracking-wider text-[#B87D28] font-bold mb-2">Tap Any Service to View Scope:</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <button onclick="navigateTo('service-vat')" class="p-3 bg-[#F8F6F1] hover:bg-[#06211C] hover:text-white border border-[#DED9CE] text-left text-xs font-bold transition-colors">01. VAT &amp; Making Tax Digital →</button>
+                    <button onclick="navigateTo('service-payroll')" class="p-3 bg-[#F8F6F1] hover:bg-[#06211C] hover:text-white border border-[#DED9CE] text-left text-xs font-bold transition-colors">02. Payroll &amp; Workplace Pensions →</button>
+                    <button onclick="navigateTo('service-bookkeeping')" class="p-3 bg-[#F8F6F1] hover:bg-[#06211C] hover:text-white border border-[#DED9CE] text-left text-xs font-bold transition-colors">03. Cloud Bookkeeping (Xero/QB) →</button>
+                    <button onclick="navigateTo('service-accounts')" class="p-3 bg-[#F8F6F1] hover:bg-[#06211C] hover:text-white border border-[#DED9CE] text-left text-xs font-bold transition-colors">04. Year-End Financial Accounts →</button>
+                    <button onclick="navigateTo('service-tax-planning')" class="p-3 bg-[#F8F6F1] hover:bg-[#06211C] hover:text-white border border-[#DED9CE] text-left text-xs font-bold transition-colors">05. Tax Planning &amp; Saving →</button>
+                    <button onclick="navigateTo('service-personal-tax')" class="p-3 bg-[#F8F6F1] hover:bg-[#06211C] hover:text-white border border-[#DED9CE] text-left text-xs font-bold transition-colors">06. Personal Tax Returns (SA100) →</button>
+                </div>
+            </div>
+            <button onclick="openQuoteModal('Mobile Drawer Quote Request')" class="w-full py-3.5 cta-primary font-bold text-xs uppercase tracking-wider">
+                Get Your Fixed-Fee Quote Now →
+            </button>
+        </div>
+    </header>
+
+    <!-- ====================================================================
+         VIEW 1: HOME PAGE (PARTNER DESK -> ZOOM INSIDE MONITOR -> PORTAL INTO SITE)
+    ==================================================================== -->
+    <main id="view-home">
+
+        <!-- ================================================================
+             INTERACTIVE PARTNER'S DESK & COMPUTER PORTAL ZOOM EXPERIENCE
+             Scrolling animates the Fountain Pen writing on the Tax Pad, parts
+             the desk items in 3D space, and zooms you directly INSIDE the
+             computer monitor to unveil the rest of the website!
+        ================================================================ -->
+        <section id="desk-scroll-track" class="relative h-[250vh] sm:h-[280vh] bg-[#06211C] text-[#F8F6F1]">
+            <div id="desk-sticky-viewport" class="sticky top-[70px] sm:top-[80px] h-[calc(100vh-70px)] sm:h-[calc(100vh-80px)] w-full overflow-hidden flex flex-col justify-between desk-perspective py-3 sm:py-5">
+
+                <!-- Architectural Desk Surface Grid Texture -->
+                <div class="pointer-events-none absolute inset-0 opacity-[0.09]" style="background-image: linear-gradient(to right, #D49A45 1px, transparent 1px), linear-gradient(to bottom, #D49A45 1px, transparent 1px); background-size: 52px 52px;"></div>
+
+                <!-- Radial Desk Lamp Warm Spotlight -->
+                <div id="desk-spotlight" class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,154,69,0.24)_0%,transparent_70%)]"></div>
+
+                <!-- TOP BAR ABOVE THE DESK (Fades & lifts upward as you zoom into the computer) -->
+                <div id="hero-top-pitch" class="relative z-20 max-w-[1380px] mx-auto w-full px-3 sm:px-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+                    <div class="max-w-2xl">
+                        <div class="inline-flex flex-wrap items-center gap-2 px-2.5 py-1 bg-[#0D352D] border border-[#D49A45]/60 text-[#E8B96A] font-mono text-[9.5px] sm:text-[11px] uppercase tracking-widest mb-1.5">
+                            <span class="w-2 h-2 rounded-full bg-[#10B981] pulse-badge"></span>
+                            <span>SCROLL DOWN TO ZOOM INSIDE THE MONITOR</span>
+                            <button onclick="playAutoZoomDemo()" class="ml-1 px-2 py-0.5 bg-[#D49A45] text-[#06211C] font-bold hover:bg-white transition-colors">
+                                ▶ Play Zoom Demo
+                            </button>
+                        </div>
+                        <h1 class="font-serif text-2xl sm:text-4xl lg:text-[46px] text-[#F8F6F1] leading-[1.04] tracking-tight">
+                            Proactive UK Accountants Who <span class="italic text-[#E8B96A]">Legally Cut Your Tax Bill.</span>
+                        </h1>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-2 w-full sm:w-auto shrink-0">
+                        <button onclick="openQuoteModal('Hero Desk CTA - Fixed Fee Quote')" class="flex-1 sm:flex-initial justify-center px-4 sm:px-6 py-2.5 sm:py-3.5 cta-primary font-bold text-[11px] sm:text-xs uppercase tracking-wider flex items-center gap-2">
+                            <span>Book Free 20-Min Tax Review</span>
+                            <span>→</span>
+                        </button>
+                        <button onclick="scrollToSection('services-showcase')" class="px-3.5 py-2.5 sm:py-3.5 bg-[#0A2E27] border border-[#D49A45]/40 hover:border-[#E8B96A] text-[11px] sm:text-xs font-mono font-semibold uppercase tracking-wider transition-colors">
+                            Skip Zoom ↓
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MOBILE & TABLET PHYSICAL DESK PROPS STRIP (Visible on iPhone/iPad & parts ways as you scroll!) -->
+                <div id="mobile-desk-props" class="xl:hidden relative z-20 max-w-[820px] mx-auto w-full px-3 mt-1">
+                    <div class="grid grid-cols-2 gap-2.5">
+                        <!-- Mini Animated Working Paper + Fountain Pen for Mobile/Tablet -->
+                        <div id="mobile-left-pad" class="bg-[#F8F4E6] text-[#111816] p-2.5 sm:p-3.5 border-2 border-[#D49A45] shadow-lg working-paper-lines relative overflow-hidden">
+                            <div class="flex items-center justify-between border-b border-[#7A2021]/40 pb-1 mb-1">
+                                <span class="font-mono text-[8.5px] font-bold text-[#7A2021] uppercase">TAX PAD // WP-09</span>
+                                <span class="font-mono text-[8.5px] bg-[#06211C] text-[#E8B96A] px-1.5 py-0.5 font-bold">-£14,450 TAX</span>
+                            </div>
+                            <div class="font-serif italic text-xs sm:text-sm text-[#06211C] leading-tight">
+                                &ldquo;Salary £12,570 + Pension Relief&rdquo;
+                            </div>
+                            <div class="mt-1.5 flex items-center justify-between">
+                                <svg width="68" height="14" viewBox="0 0 120 24" class="overflow-visible">
+                                    <path d="M2 18 Q 25 4, 48 16 T 95 12" fill="none" stroke="#0A6E4E" stroke-width="2.4" class="ink-signature-path" />
+                                </svg>
+                                <span class="font-mono text-[8.5px] text-[#0A6E4E] font-bold uppercase">✒ Pen Signing</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini HMRC Stamp Docket for Mobile/Tablet -->
+                        <div id="mobile-right-stamp" class="bg-[#0A2E27] text-[#F8F6F1] p-2.5 sm:p-3.5 border-2 border-[#D49A45]/70 shadow-lg flex flex-col justify-between">
+                            <div>
+                                <div class="font-mono text-[8.5px] text-[#E8B96A] uppercase">HMRC &amp; CO. HOUSE</div>
+                                <div class="font-serif text-sm sm:text-base text-white leading-tight mt-0.5">CT600 &amp; VAT MTD</div>
+                            </div>
+                            <div class="mt-1.5 p-1 border border-[#10B981] text-[#10B981] font-mono text-[8.5px] font-bold text-center uppercase">
+                                ✓ FILED ON TIME • £0 FINE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CENTER STAGE: THE PARTNER'S DESK (PEN + PAPER ON LEFT, MONITOR IN CENTER, STAMP/CALCULATOR ON RIGHT) -->
+                <div class="relative z-10 flex-1 flex items-center justify-center px-2 sm:px-8 my-auto">
+                    <div class="relative w-full max-w-[1400px] flex items-center justify-center">
+
+                        <!-- LEFT DESK PROPS (DESKTOP XL): ANIMATED WORKING PAPER PAD & WRITING FOUNTAIN PEN -->
+                        <div id="desk-left-props" class="hidden xl:block absolute left-2 top-1/2 -translate-y-1/2 w-[270px] z-30 pointer-events-none">
+                            <div class="paper-float-anim">
+                                <!-- Physical Yellow/Ivory Working Paper Pad -->
+                                <div class="bg-[#F8F4E6] text-[#111816] p-5 border-2 border-[#D49A45] shadow-[0_28px_60px_rgba(0,0,0,0.85)] working-paper-lines relative">
+                                    <!-- Brass Paperclip at Top -->
+                                    <div class="absolute -top-3 left-6 w-5 h-9 border-2 border-[#D49A45] bg-[#E8B96A]/30 rounded-full"></div>
+
+                                    <div class="border-b-2 border-[#7A2021] pb-2 mb-2.5 flex items-center justify-between">
+                                        <span class="font-mono text-[10px] font-bold text-[#7A2021] uppercase">WORKING PAPER // WP-09</span>
+                                        <span class="font-mono text-[10px] text-[#525E5A]">06/04 – 05/04</span>
+                                    </div>
+                                    <div class="font-serif italic text-xl text-[#06211C] leading-snug mb-2">
+                                        &ldquo;Pre-Year-End Director Tax Notes&rdquo;
+                                    </div>
+                                    <ul class="space-y-1.5 font-mono text-[11px] text-[#111816]">
+                                        <li class="flex justify-between">
+                                            <span>✓ Optimal Salary:</span>
+                                            <span class="font-bold">£12,570</span>
+                                        </li>
+                                        <li class="flex justify-between">
+                                            <span>✓ Employer Pension:</span>
+                                            <span class="font-bold text-[#0A6E4E]">-£10,600 Tax</span>
+                                        </li>
+                                        <li class="flex justify-between">
+                                            <span>✓ 100% AIA Relief:</span>
+                                            <span class="font-bold text-[#0A6E4E]">-£3,850 Tax</span>
+                                        </li>
+                                    </ul>
+
+                                    <!-- Live Self-Drawing Fountain Pen Ink Signature -->
+                                    <div class="mt-3 pt-2 border-t border-[#111816]/20">
+                                        <div class="flex items-center justify-between mb-1">
+                                            <span class="font-mono text-[9px] uppercase text-[#525E5A]">PARTNER SIGN-OFF:</span>
+                                            <span class="font-mono text-[9px] bg-[#06211C] text-[#E8B96A] px-1.5 py-0.5 font-bold">APPROVED</span>
+                                        </div>
+                                        <svg width="170" height="26" viewBox="0 0 170 28" fill="none">
+                                            <path d="M6 22 C 28 4, 42 26, 66 12 C 88 2, 105 22, 158 10" stroke="#06211C" stroke-width="2.2" stroke-linecap="round" class="ink-signature-path"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <!-- Animated Writing Gold-Nib Fountain Pen SVG -->
+                                <div class="mt-2 ml-6 pen-write-anim drop-shadow-[0_18px_20px_rgba(0,0,0,0.75)]">
+                                    <svg width="215" height="36" viewBox="0 0 220 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <polygon points="2,19 28,10 28,28" fill="#E8B96A" stroke="#06211C" stroke-width="1.3"/>
+                                        <line x1="2" y1="19" x2="20" y2="19" stroke="#06211C" stroke-width="1.3"/>
+                                        <circle cx="20" cy="19" r="2.2" fill="#06211C"/>
+                                        <rect x="28" y="10" width="24" height="18" fill="#111816" stroke="#D49A45" stroke-width="1.2"/>
+                                        <rect x="52" y="9" width="7" height="20" fill="#D49A45"/>
+                                        <rect x="59" y="8" width="132" height="22" rx="3" fill="#0A2E27" stroke="#E8B96A" stroke-width="1.5"/>
+                                        <rect x="140" y="4" width="44" height="4" fill="#E8B96A"/>
+                                        <rect x="191" y="10" width="16" height="18" fill="#D49A45"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CENTERPIECE: THE EXECUTIVE COMPUTER MONITOR (ZOOM-IN PORTAL) -->
+                        <div id="monitor-assembly" class="w-full max-w-[820px] z-20" style="transform: scale(0.78) rotateX(11deg);">
+                            <!-- Outer Monitor Bezel -->
+                            <div id="monitor-bezel-frame" class="bg-[#0B1513] p-2 sm:p-3.5 border-2 border-[#D49A45] shadow-[0_35px_95px_rgba(0,0,0,0.9)] transition-colors duration-200">
+
+                                <!-- Monitor Top Camera & OS Bar -->
+                                <div class="bg-[#041410] px-2.5 sm:px-4 py-2 border-b border-[#F8F6F1]/15 flex flex-wrap items-center justify-between gap-2">
+                                    <div class="flex items-center gap-1.5 sm:gap-2">
+                                        <span class="w-2.5 h-2.5 rounded-full bg-[#EF4444] inline-block"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B] inline-block"></span>
+                                        <span class="w-2.5 h-2.5 rounded-full bg-[#10B981] inline-block"></span>
+                                        <img src="https://i.ibb.co/4wPLrhF4/ALRIZ.png" alt="ALRIX" class="h-4 w-4 object-contain ml-1">
+                                        <span class="font-mono text-[9.5px] sm:text-[11px] text-[#E8B96A] font-semibold tracking-wider uppercase truncate">
+                                            ALRIX-OS // <span id="monitor-zoom-readout">ZOOM: 100%</span>
+                                        </span>
+                                    </div>
+                                    <div class="flex items-center gap-1 w-full sm:w-auto justify-end">
+                                        <button onclick="setMonitorSlide(0)" id="screen-tab-0" class="flex-1 sm:flex-initial px-2.5 py-1 font-mono text-[9.5px] sm:text-[10px] uppercase bg-[#D49A45] text-[#06211C] font-bold transition-colors">
+                                            01. Cut Tax
+                                        </button>
+                                        <button onclick="setMonitorSlide(1)" id="screen-tab-1" class="flex-1 sm:flex-initial px-2.5 py-1 font-mono text-[9.5px] sm:text-[10px] uppercase bg-[#0A2E27] text-[#F8F6F1]/75 hover:text-white transition-colors">
+                                            02. Filings
+                                        </button>
+                                        <button onclick="setMonitorSlide(2)" id="screen-tab-2" class="flex-1 sm:flex-initial px-2.5 py-1 font-mono text-[9.5px] sm:text-[10px] uppercase bg-[#0A2E27] text-[#F8F6F1]/75 hover:text-white transition-colors">
+                                            03. Enter Site
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- THE INNER ILLUMINATED SCREEN (Text scales larger as you zoom in!) -->
+                                <div id="inner-computer-screen" class="bg-[#F8F6F1] text-[#111816] p-4 sm:p-7 lg:p-9 min-h-[295px] sm:min-h-[375px] flex flex-col justify-between relative overflow-hidden">
+
+                                    <!-- Subtle Moving Screen Scanline Glow -->
+                                    <div class="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-[#D49A45]/15 to-transparent scanline-bar"></div>
+
+                                    <!-- SCREEN SLIDE 1: PROACTIVE TAX SAVING (0% - 36% Scroll) -->
+                                    <div id="monitor-slide-0" class="space-y-3 sm:space-y-5 my-auto relative z-10">
+                                        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#DED9CE] pb-2">
+                                            <span class="font-mono text-[9.5px] sm:text-xs uppercase tracking-widest text-[#0A6E4E] font-bold">
+                                                ● STEP 01 // PRE-YEAR-END TAX REDUCTION
+                                            </span>
+                                            <span class="font-mono text-[9.5px] sm:text-xs bg-[#06211C] text-[#E8B96A] px-2 py-0.5 font-bold">
+                                                HMRC COMPLIANT
+                                            </span>
+                                        </div>
+
+                                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 items-center">
+                                            <div class="lg:col-span-7">
+                                                <h2 class="zoom-scale-text font-serif text-2xl sm:text-4xl lg:text-[40px] text-[#06211C] leading-[1.06] mb-2">
+                                                    Stop Overpaying UK Corporation &amp; Dividend Tax.
+                                                </h2>
+                                                <p class="text-xs sm:text-sm text-[#525E5A] leading-relaxed mb-3.5">
+                                                    Most accountants only contact you months <em>after</em> your year-end when it is too late to save tax. We review your figures at Month 9 to legally cut your tax bill before your year closes.
+                                                </p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <button onclick="openQuoteModal('Monitor Screen - Tax Saving Review')" class="px-4 py-2.5 cta-primary font-mono text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider">
+                                                        Claim Free Tax Review →
+                                                    </button>
+                                                    <button onclick="setMonitorSlide(1)" class="px-3 py-2.5 bg-white border border-[#06211C] font-mono text-[10.5px] sm:text-[11px] font-bold uppercase text-[#06211C] hover:bg-[#06211C] hover:text-white transition-colors">
+                                                        Next: Full Compliance →
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <!-- Live Tax Saving Comparison Card Inside Screen -->
+                                            <div class="lg:col-span-5 bg-white border-2 border-[#06211C] p-3.5 sm:p-4 shadow-md">
+                                                <div class="font-mono text-[9.5px] uppercase text-[#525E5A] mb-1">TYPICAL LTD COMPANY (£150K PROFIT)</div>
+                                                <div class="flex justify-between items-center text-xs py-1 border-b border-[#E5E0D5]">
+                                                    <span class="text-[#7A2021] font-semibold">Reactive Accountant:</span>
+                                                    <span class="font-mono font-bold text-[#7A2021] tabular-nums line-through">£41,250</span>
+                                                </div>
+                                                <div class="flex justify-between items-center text-xs py-1 border-b border-[#E5E0D5]">
+                                                    <span class="text-[#06211C] font-semibold">With Alrix Planning:</span>
+                                                    <span class="font-mono font-bold text-[#0A6E4E] tabular-nums">£26,800</span>
+                                                </div>
+                                                <div class="mt-2.5 p-2 bg-[#06211C] text-[#E8B96A] flex items-center justify-between font-mono text-xs font-bold">
+                                                    <span>TAX SAVED:</span>
+                                                    <span class="text-sm sm:text-base tabular-nums">+£14,450 / YR</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- SCREEN SLIDE 2: ALL-IN-ONE STATUTORY COMPLIANCE (36% - 72% Scroll) -->
+                                    <div id="monitor-slide-1" class="hidden space-y-3 sm:space-y-4 my-auto relative z-10">
+                                        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#DED9CE] pb-2">
+                                            <span class="font-mono text-[9.5px] sm:text-xs uppercase tracking-widest text-[#B87D28] font-bold">
+                                                ● STEP 02 // COMPLETE BACK-OFFICE PEACE OF MIND
+                                            </span>
+                                            <span class="font-mono text-[9.5px] sm:text-xs bg-[#06211C] text-[#10B981] px-2 py-0.5 font-bold">
+                                                ZERO LATE PENALTIES
+                                            </span>
+                                        </div>
+
+                                        <div>
+                                            <h2 class="zoom-scale-text font-serif text-2xl sm:text-4xl lg:text-[38px] text-[#06211C] leading-[1.06] mb-1.5">
+                                                Every HMRC &amp; Companies House Filing Handled For You.
+                                            </h2>
+                                            <p class="text-xs sm:text-sm text-[#525E5A] mb-3">
+                                                Tap any service inside our monitor below to open its full statutory scope:
+                                            </p>
+
+                                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 font-mono text-xs">
+                                                <button onclick="navigateTo('service-accounts')" class="p-2.5 bg-white border border-[#DED9CE] hover:border-[#06211C] text-left transition-all">
+                                                    <div class="text-[#D49A45] font-bold text-[9.5px]">01. YEAR-END</div>
+                                                    <div class="text-[#06211C] font-bold mt-0.5">FRS 102 &amp; CT600 →</div>
+                                                </button>
+                                                <button onclick="navigateTo('service-vat')" class="p-2.5 bg-white border border-[#DED9CE] hover:border-[#06211C] text-left transition-all">
+                                                    <div class="text-[#D49A45] font-bold text-[9.5px]">02. UK VAT</div>
+                                                    <div class="text-[#06211C] font-bold mt-0.5">MTD Quarterly →</div>
+                                                </button>
+                                                <button onclick="navigateTo('service-payroll')" class="p-2.5 bg-white border border-[#DED9CE] hover:border-[#06211C] text-left transition-all">
+                                                    <div class="text-[#D49A45] font-bold text-[9.5px]">03. PAYROLL</div>
+                                                    <div class="text-[#06211C] font-bold mt-0.5">PAYE, RTI &amp; CIS →</div>
+                                                </button>
+                                                <button onclick="navigateTo('service-bookkeeping')" class="p-2.5 bg-white border border-[#DED9CE] hover:border-[#06211C] text-left transition-all">
+                                                    <div class="text-[#D49A45] font-bold text-[9.5px]">04. LEDGERS</div>
+                                                    <div class="text-[#06211C] font-bold mt-0.5">Xero/QuickBooks →</div>
+                                                </button>
+                                                <button onclick="navigateTo('service-tax-planning')" class="p-2.5 bg-white border border-[#DED9CE] hover:border-[#06211C] text-left transition-all">
+                                                    <div class="text-[#D49A45] font-bold text-[9.5px]">05. TAX SAVING</div>
+                                                    <div class="text-[#06211C] font-bold mt-0.5">Month-9 Review →</div>
+                                                </button>
+                                                <button onclick="navigateTo('service-personal-tax')" class="p-2.5 bg-white border border-[#DED9CE] hover:border-[#06211C] text-left transition-all">
+                                                    <div class="text-[#D49A45] font-bold text-[9.5px]">06. PERSONAL</div>
+                                                    <div class="text-[#06211C] font-bold mt-0.5">SA100 Returns →</div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- SCREEN SLIDE 3: PORTAL INTO FULL WEBSITE (72% - 100% Scroll) -->
+                                    <div id="monitor-slide-2" class="hidden space-y-3 sm:space-y-5 my-auto relative z-10">
+                                        <div class="flex flex-wrap items-center justify-between gap-2 border-b border-[#DED9CE] pb-2">
+                                            <span class="font-mono text-[9.5px] sm:text-xs uppercase tracking-widest text-[#06211C] font-bold">
+                                                ● STEP 03 // ENTERING FULL ALRIX ADVISORY PLATFORM
+                                            </span>
+                                            <span class="font-mono text-[9.5px] sm:text-xs bg-[#D49A45] text-[#06211C] px-2 py-0.5 font-bold">
+                                                48-HR SWITCHING
+                                            </span>
+                                        </div>
+
+                                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+                                            <div class="lg:col-span-7">
+                                                <h2 class="zoom-scale-text font-serif text-2xl sm:text-4xl lg:text-[40px] text-[#06211C] leading-[1.05] mb-2">
+                                                    Switch to Alrix in 48 Hours With Fixed Monthly Fees.
+                                                </h2>
+                                                <p class="text-xs sm:text-sm text-[#525E5A] leading-relaxed mb-3.5">
+                                                    Keep scrolling down to step directly inside our full UK Services &amp; Interactive Tax Calculator below, or request your fixed-fee quote right now.
+                                                </p>
+                                                <div class="flex flex-wrap gap-2">
+                                                    <button onclick="openQuoteModal('Inside Monitor Screen - Hire Alrix CTA')" class="px-5 py-3 cta-primary font-bold text-xs uppercase tracking-wider">
+                                                        Get Fixed-Fee Proposal →
+                                                    </button>
+                                                    <button onclick="scrollToSection('services-showcase')" class="px-4 py-3 bg-[#06211C] text-[#E8B96A] font-mono text-xs font-bold uppercase">
+                                                        Enter Full Website ↓
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="lg:col-span-5 bg-[#06211C] text-[#F8F6F1] p-4 border border-[#D49A45]">
+                                                <div class="font-mono text-xs text-[#E8B96A] uppercase font-bold mb-2">OUR CLIENT GUARANTEE:</div>
+                                                <ul class="space-y-1.5 text-xs">
+                                                    <li class="flex items-center gap-2"><span class="text-[#10B981] font-bold">✓</span> Fixed written fee before you sign</li>
+                                                    <li class="flex items-center gap-2"><span class="text-[#10B981] font-bold">✓</span> Direct partner email &amp; phone access</li>
+                                                    <li class="flex items-center gap-2"><span class="text-[#10B981] font-bold">✓</span> Accounts drafted within 90 days</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Screen Bottom Status Bar -->
+                                    <div class="pt-2.5 border-t border-[#DED9CE] flex flex-wrap items-center justify-between gap-2 font-mono text-[9.5px] sm:text-[11px] text-[#525E5A] relative z-10">
+                                        <span id="zoom-status-label" class="font-bold text-[#06211C]">STAGE 1 OF 3 // SCROLL DOWN TO ZOOM INTO MONITOR</span>
+                                        <button onclick="scrollToSection('services-showcase')" class="text-[#B87D28] font-bold underline hover:text-[#06211C]">
+                                            Explore All 6 Services ↓
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Monitor Brushed Gold Chin & Desk Stand -->
+                            <div id="monitor-stand-neck" class="mx-auto w-24 sm:w-32 h-2.5 sm:h-3.5 bg-gradient-to-b from-[#D49A45] to-[#8C5E1E]"></div>
+                            <div id="monitor-stand-base" class="mx-auto w-44 sm:w-60 h-2 bg-[#1A2925] border-t border-[#D49A45]/60"></div>
+                        </div>
+
+                        <!-- RIGHT DESK PROPS (DESKTOP XL): HMRC / COMPANIES HOUSE FILING STAMP & DOCKET -->
+                        <div id="desk-right-props" class="hidden xl:block absolute right-2 top-1/2 -translate-y-1/2 w-[260px] z-30 pointer-events-none">
+                            <div class="stamp-float-anim">
+                                <div class="bg-[#0A2E27] text-[#F8F6F1] p-5 border-2 border-[#D49A45]/85 shadow-[0_28px_60px_rgba(0,0,0,0.85)]">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="font-mono text-[10px] text-[#E8B96A] uppercase tracking-widest">
+                                            OFFICIAL FILING STAMP
+                                        </span>
+                                        <img src="https://i.ibb.co/4wPLrhF4/ALRIZ.png" alt="ALRIX" class="h-5 w-5 object-contain">
+                                    </div>
+                                    <div class="font-serif text-2xl text-white mb-2.5">
+                                        HMRC &amp; Companies House
+                                    </div>
+                                    <div class="p-2 border-2 border-[#10B981] bg-[#10B981]/10 text-[#10B981] font-mono text-xs font-bold text-center uppercase tracking-widest -rotate-2 mb-3">
+                                        ✓ FILED ON TIME • £0 PENALTY
+                                    </div>
+                                    <div class="space-y-1.5 font-mono text-[11px] text-[#F8F6F1]/85 tabular-nums">
+                                        <div class="flex justify-between"><span>CT600 Return:</span><span class="text-[#E8B96A]">iXBRL Verified</span></div>
+                                        <div class="flex justify-between"><span>VAT100 MTD:</span><span class="text-[#E8B96A]">API Connected</span></div>
+                                        <div class="flex justify-between"><span>SA100 Personal:</span><span class="text-[#E8B96A]">Optimised</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Bottom Scroll Progress Track on Desk -->
+                <div class="relative z-20 max-w-[820px] mx-auto w-full px-3 sm:px-4 pb-1">
+                    <div class="flex items-center justify-between font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-[#E8B96A] mb-1">
+                        <span>01. PARTNER DESK</span>
+                        <span id="zoom-pct-indicator">ZOOMING INTO SCREEN (15%)</span>
+                        <span>03. FULL WEBSITE ↓</span>
+                    </div>
+                    <div class="w-full h-1.5 bg-[#0D352D] overflow-hidden border border-[#D49A45]/30">
+                        <div id="desk-zoom-bar" class="h-full bg-[#D49A45] transition-all duration-75" style="width: 15%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             2. PORTAL CONTINUATION BELT: EMERGING FROM INSIDE THE MONITOR
+        ================================================================ -->
+        <section class="portal-bridge text-[#F8F6F1] border-y-2 border-[#D49A45]/50 py-10 relative overflow-hidden">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-8">
+                <div class="flex items-center justify-center gap-2 mb-6 font-mono text-[11px] uppercase tracking-[0.2em] text-[#E8B96A]">
+                    <span>▼</span>
+                    <span>INSIDE THE ALRIX CLIENT ADVISORY SYSTEM</span>
+                    <span>▼</span>
+                </div>
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-[#173A32]">
+                    <div class="pt-3 sm:pt-0 sm:px-4 first:pl-0 reveal-item">
+                        <div class="font-serif text-3xl sm:text-4xl text-[#E8B96A] tabular-nums">100% Fixed</div>
+                        <div class="text-xs text-[#F8F6F1]/80 mt-1">Transparent monthly fees agreed in writing—no surprise bills.</div>
+                    </div>
+                    <div class="pt-3 sm:pt-0 sm:px-4 reveal-item">
+                        <div class="font-serif text-3xl sm:text-4xl text-[#F8F6F1] tabular-nums">90-Day Turnaround</div>
+                        <div class="text-xs text-[#F8F6F1]/80 mt-1">Year-end accounts prepared 6 months ahead of the statutory deadline.</div>
+                    </div>
+                    <div class="pt-3 sm:pt-0 sm:px-4 reveal-item">
+                        <div class="font-serif text-3xl sm:text-4xl text-[#10B981] tabular-nums">Month-9 Review</div>
+                        <div class="text-xs text-[#F8F6F1]/80 mt-1">Pre-year-end tax planning while there is still time to lower your tax.</div>
+                    </div>
+                    <div class="pt-3 sm:pt-0 sm:px-4 reveal-item">
+                        <div class="font-serif text-3xl sm:text-4xl text-[#E8B96A] tabular-nums">48-Hr Switch</div>
+                        <div class="text-xs text-[#F8F6F1]/80 mt-1">We handle professional clearance from your old accountant seamlessly.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             3. OUR 6 CORE UK ACCOUNTANCY SERVICES (CLEAN, SCANNABLE & ACTIONABLE)
+        ================================================================ -->
+        <section id="services-showcase" class="py-20 sm:py-24 bg-[#F8F6F1] border-b border-[#DED9CE]">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-8">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14">
+                    <div>
+                        <div class="font-mono text-xs uppercase tracking-[0.2em] text-[#B87D28] font-bold mb-2">
+                            HOW WE LOOK AFTER YOUR BUSINESS
+                        </div>
+                        <h2 class="font-serif text-4xl sm:text-5xl text-[#06211C] tracking-tight">
+                            Six Core UK Accounting &amp; Tax Services.
+                        </h2>
+                    </div>
+                    <button onclick="openQuoteModal('Services Grid - Custom Package Quote')" class="px-6 py-4 cta-dark font-mono text-xs uppercase tracking-wider font-bold self-start lg:self-auto">
+                        Build Your Custom Monthly Package →
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Service Card 1: VAT -->
+                    <div onclick="navigateTo('service-vat')" class="card-lift cursor-pointer bg-white border border-[#DED9CE] hover:border-[#06211C] p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <span class="font-mono text-xs font-bold px-3 py-1 bg-[#F8F6F1] text-[#06211C] group-hover:bg-[#D49A45]">01 // UK VAT &amp; MTD</span>
+                                <span class="font-mono text-xs text-[#525E5A] group-hover:translate-x-1 transition-transform">View Details →</span>
+                            </div>
+                            <h3 class="font-serif text-3xl text-[#06211C] mb-3">VAT Returns &amp; Advice</h3>
+                            <p class="text-sm text-[#525E5A] leading-relaxed mb-6">
+                                Complete Making Tax Digital (MTD) quarterly filings, Flat Rate vs. Cash Accounting reviews, £90,000 threshold monitoring, and Postponed Import VAT reconciliation.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-[#E5E0D5] flex items-center justify-between text-xs font-bold text-[#06211C]">
+                            <span>For VAT-Registered Ltds &amp; Traders</span>
+                            <span class="text-[#D49A45]">Inspect Scope →</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 2: Payroll -->
+                    <div onclick="navigateTo('service-payroll')" class="card-lift cursor-pointer bg-white border border-[#DED9CE] hover:border-[#06211C] p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <span class="font-mono text-xs font-bold px-3 py-1 bg-[#F8F6F1] text-[#06211C] group-hover:bg-[#D49A45]">02 // PAYE, RTI &amp; CIS</span>
+                                <span class="font-mono text-xs text-[#525E5A] group-hover:translate-x-1 transition-transform">View Details →</span>
+                            </div>
+                            <h3 class="font-serif text-3xl text-[#06211C] mb-3">Payroll &amp; Auto-Enrolment</h3>
+                            <p class="text-sm text-[#525E5A] leading-relaxed mb-6">
+                                Weekly or monthly payslips, HMRC Real Time Information (RTI) submissions, Workplace Pension filings, £10,500 Employment Allowance claims, and CIS returns.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-[#E5E0D5] flex items-center justify-between text-xs font-bold text-[#06211C]">
+                            <span>For Directors &amp; UK Employers</span>
+                            <span class="text-[#D49A45]">Inspect Scope →</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 3: Bookkeeping -->
+                    <div onclick="navigateTo('service-bookkeeping')" class="card-lift cursor-pointer bg-white border border-[#DED9CE] hover:border-[#06211C] p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <span class="font-mono text-xs font-bold px-3 py-1 bg-[#F8F6F1] text-[#06211C] group-hover:bg-[#D49A45]">03 // XERO &amp; QUICKBOOKS</span>
+                                <span class="font-mono text-xs text-[#525E5A] group-hover:translate-x-1 transition-transform">View Details →</span>
+                            </div>
+                            <h3 class="font-serif text-3xl text-[#06211C] mb-3">Cloud Bookkeeping</h3>
+                            <p class="text-sm text-[#525E5A] leading-relaxed mb-6">
+                                Automated bank feed reconciliations, digital receipt capture, Director Loan Account tracking, and clear monthly management reports so you always know your cash position.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-[#E5E0D5] flex items-center justify-between text-xs font-bold text-[#06211C]">
+                            <span>Audit-Ready Digital Records</span>
+                            <span class="text-[#D49A45]">Inspect Scope →</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 4: Financial Accounts -->
+                    <div onclick="navigateTo('service-accounts')" class="card-lift cursor-pointer bg-white border border-[#DED9CE] hover:border-[#06211C] p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <span class="font-mono text-xs font-bold px-3 py-1 bg-[#F8F6F1] text-[#06211C] group-hover:bg-[#D49A45]">04 // FRS 102 &amp; FRS 105</span>
+                                <span class="font-mono text-xs text-[#525E5A] group-hover:translate-x-1 transition-transform">View Details →</span>
+                            </div>
+                            <h3 class="font-serif text-3xl text-[#06211C] mb-3">Year-End Financial Accounts</h3>
+                            <p class="text-sm text-[#525E5A] leading-relaxed mb-6">
+                                Statutory year-end accounts under UK GAAP, privacy-protecting filleted accounts for Companies House, full iXBRL tagging, and Company Tax Return (CT600) submission.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-[#E5E0D5] flex items-center justify-between text-xs font-bold text-[#06211C]">
+                            <span>For Limited Companies &amp; LLPs</span>
+                            <span class="text-[#D49A45]">Inspect Scope →</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 5: Tax Planning -->
+                    <div onclick="navigateTo('service-tax-planning')" class="card-lift cursor-pointer bg-white border border-[#DED9CE] hover:border-[#06211C] p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <span class="font-mono text-xs font-bold px-3 py-1 bg-[#F8F6F1] text-[#06211C] group-hover:bg-[#D49A45]">05 // PROACTIVE MITIGATION</span>
+                                <span class="font-mono text-xs text-[#525E5A] group-hover:translate-x-1 transition-transform">View Details →</span>
+                            </div>
+                            <h3 class="font-serif text-3xl text-[#06211C] mb-3">Tax Planning &amp; Advice</h3>
+                            <p class="text-sm text-[#525E5A] leading-relaxed mb-6">
+                                Pre-year-end Corporation Tax reduction (19%–25% bands), optimal salary &amp; dividend splits, Employer Pension contributions, and 100% Full Expensing capital allowances.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-[#E5E0D5] flex items-center justify-between text-xs font-bold text-[#06211C]">
+                            <span>Legally Keep More of Your Profit</span>
+                            <span class="text-[#D49A45]">Inspect Scope →</span>
+                        </div>
+                    </div>
+
+                    <!-- Service Card 6: Personal Tax -->
+                    <div onclick="navigateTo('service-personal-tax')" class="card-lift cursor-pointer bg-white border border-[#DED9CE] hover:border-[#06211C] p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <span class="font-mono text-xs font-bold px-3 py-1 bg-[#F8F6F1] text-[#06211C] group-hover:bg-[#D49A45]">06 // SA100 &amp; LANDLORDS</span>
+                                <span class="font-mono text-xs text-[#525E5A] group-hover:translate-x-1 transition-transform">View Details →</span>
+                            </div>
+                            <h3 class="font-serif text-3xl text-[#06211C] mb-3">Personal Tax Returns</h3>
+                            <p class="text-sm text-[#525E5A] leading-relaxed mb-6">
+                                Stress-free HMRC Self Assessment (SA100) filing well ahead of 31 January, Payments on Account reductions, Section 24 landlord schedules, and Capital Gains reporting.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-[#E5E0D5] flex items-center justify-between text-xs font-bold text-[#06211C]">
+                            <span>For Directors, Landlords &amp; High Earners</span>
+                            <span class="text-[#D49A45]">Inspect Scope →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             4. INTERACTIVE UK DIRECTOR TAX SAVING CALCULATOR
+        ================================================================ -->
+        <section class="py-20 bg-[#06211C] text-[#F8F6F1] border-b border-[#173A32]">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5">
+                        <div class="font-mono text-xs uppercase tracking-[0.2em] text-[#E8B96A] font-bold mb-2">
+                            INTERACTIVE TAX SAVING ESTIMATOR
+                        </div>
+                        <h2 class="font-serif text-4xl sm:text-5xl leading-tight mb-4">
+                            See How Much Tax Proactive Planning Could Save You.
+                        </h2>
+                        <p class="text-sm sm:text-base text-[#F8F6F1]/80 leading-relaxed mb-6">
+                            Drag the slider to match your company’s annual pre-tax profit. Compare what happens when an accountant files reactively after year-end versus our Month-9 pre-year-end planning (using optimal salary/dividends, employer pension relief, and capital allowances).
+                        </p>
+                        <button onclick="openQuoteModal('Tax Calculator Custom Illustration')" class="px-7 py-4 cta-primary font-bold text-xs uppercase tracking-wider">
+                            Book Your Personalised Tax Calculation →
+                        </button>
+                    </div>
+
+                    <div class="lg:col-span-7 bg-[#0A2E27] border-2 border-[#D49A45]/60 p-6 sm:p-10 shadow-2xl">
+                        <div class="flex items-center justify-between mb-3">
+                            <label for="calc-profit-slider" class="font-mono text-xs uppercase tracking-wider text-[#E8B96A]">
+                                Your Annual Company Profit (GBP £):
+                            </label>
+                            <span id="calc-profit-display" class="font-serif text-4xl text-white tabular-nums">£150,000</span>
+                        </div>
+                        <input
+                            id="calc-profit-slider"
+                            type="range"
+                            min="50000"
+                            max="400000"
+                            step="10000"
+                            value="150000"
+                            oninput="updateTaxCalculator(this.value)"
+                            class="w-full h-2.5 bg-[#06211C] accent-[#D49A45] cursor-pointer mb-8"
+                        >
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                            <div class="p-5 bg-[#06211C] border border-[#F8F6F1]/15">
+                                <div class="font-mono text-[11px] text-[#FCA5A5] uppercase">Reactive Accountant (Unplanned)</div>
+                                <div id="calc-reactive-tax" class="font-serif text-3xl text-white mt-1 tabular-nums">£44,250</div>
+                                <div class="text-xs text-[#F8F6F1]/60 mt-1">Missed pension &amp; AIA cut-off windows</div>
+                            </div>
+                            <div class="p-5 bg-[#06211C] border-2 border-[#10B981]">
+                                <div class="font-mono text-[11px] text-[#10B981] uppercase font-bold">Alrix Pre-Year-End Strategy</div>
+                                <div id="calc-alrix-tax" class="font-serif text-3xl text-[#10B981] mt-1 tabular-nums">£29,700</div>
+                                <div class="text-xs text-[#F8F6F1]/80 mt-1">Structured salary, dividend &amp; pension mix</div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-[#D49A45] text-[#06211C] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <span class="font-mono text-xs uppercase font-bold">ESTIMATED ANNUAL WEALTH RETAINED:</span>
+                            <span id="calc-saving-total" class="font-serif text-3xl font-bold tabular-nums">+£14,550 / Year</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             5. EFFORTLESS 3-STEP SWITCHING ("HOW TO HIRE US")
+        ================================================================ -->
+        <section id="switching-section" class="py-20 bg-white border-b border-[#DED9CE]">
+            <div class="max-w-[1400px] mx-auto px-4 sm:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-14">
+                    <div class="font-mono text-xs uppercase tracking-[0.2em] text-[#B87D28] font-bold mb-2">
+                        ZERO-HASSLE ONBOARDING
+                    </div>
+                    <h2 class="font-serif text-4xl sm:text-5xl text-[#06211C] mb-3">
+                        How to Switch to Alrix in 3 Simple Steps.
+                    </h2>
+                    <p class="text-base text-[#525E5A]">
+                        You never even have to speak to your old accountant—we manage the entire handover for you.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 border-2 border-[#06211C] divide-y md:divide-y-0 md:divide-x divide-[#DED9CE]">
+                    <div class="p-8 bg-[#F8F6F1]">
+                        <div class="font-mono text-xs font-bold px-3 py-1 bg-[#06211C] text-[#E8B96A] inline-block mb-4">STEP 01 // DAY 1</div>
+                        <h3 class="font-serif text-3xl text-[#06211C] mb-2">Free 20-Min Discovery &amp; Fixed Quote</h3>
+                        <p class="text-sm text-[#525E5A] leading-relaxed">
+                            Tell us about your Limited Company, LLP, or personal tax needs. Within 24 hours, we send you a clear, fixed-fee proposal with zero hidden charges.
+                        </p>
+                    </div>
+                    <div class="p-8 bg-white">
+                        <div class="font-mono text-xs font-bold px-3 py-1 bg-[#06211C] text-[#E8B96A] inline-block mb-4">STEP 02 // DAY 2</div>
+                        <h3 class="font-serif text-3xl text-[#06211C] mb-2">We Contact Your Old Accountant</h3>
+                        <p class="text-sm text-[#525E5A] leading-relaxed">
+                            Once you sign our digital Letter of Engagement, we write directly to your outgoing accountant for formal Professional Clearance and collect all historical records and tax codes.
+                        </p>
+                    </div>
+                    <div class="p-8 bg-[#F8F6F1]">
+                        <div class="font-mono text-xs font-bold px-3 py-1 bg-[#D49A45] text-[#06211C] inline-block mb-4">STEP 03 // DAY 3 ONWARDS</div>
+                        <h3 class="font-serif text-3xl text-[#06211C] mb-2">Diagnostic Audit &amp; Tax Saving Plan</h3>
+                        <p class="text-sm text-[#525E5A] leading-relaxed">
+                            We link your HMRC agent codes, audit your Xero/QuickBooks ledger for missed tax reliefs, and put your statutory deadlines on autopilot.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             6. FREQUENTLY ASKED QUESTIONS
+        ================================================================ -->
+        <section id="faq-section" class="py-20 bg-[#F8F6F1] border-b border-[#DED9CE]">
+            <div class="max-w-[1100px] mx-auto px-4 sm:px-8">
+                <div class="text-center mb-12">
+                    <div class="font-mono text-xs uppercase tracking-[0.2em] text-[#B87D28] font-bold mb-2">
+                        COMMON CLIENT QUESTIONS
+                    </div>
+                    <h2 class="font-serif text-4xl sm:text-5xl text-[#06211C]">
+                        Straightforward Answers for UK Business Owners.
+                    </h2>
+                </div>
+
+                <div class="bg-white border border-[#DED9CE] divide-y divide-[#DED9CE]" id="home-faq-list">
+                    <!-- Populated via JS below -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================================================================
+             7. DIRECT CONSULTATION & FIXED-FEE QUOTE SECTION
+        ================================================================ -->
+        <section id="contact-section" class="py-20 bg-[#06211C] text-[#F8F6F1]">
+            <div class="max-w-[1300px] mx-auto px-4 sm:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5">
+                    <div class="font-mono text-xs uppercase tracking-[0.2em] text-[#E8B96A] font-bold mb-2">
+                        HIRE ALRIX ACCOUNTANTS
+                    </div>
+                    <h2 class="font-serif text-4xl sm:text-5xl leading-tight mb-4">
+                        Request Your Fixed-Fee Quote Today.
+                    </h2>
+                    <p class="text-sm sm:text-base text-[#F8F6F1]/80 leading-relaxed mb-8">
+                        Fill in the brief form opposite or email our partner desk directly. You will receive a personal response from a Senior UK Accountant within one business day.
+                    </p>
+
+                    <div class="bg-[#0A2E27] border border-[#D49A45]/40 p-6 space-y-4">
+                        <div>
+                            <div class="font-mono text-[10px] uppercase text-[#E8B96A]">DIRECT PARTNER EMAIL</div>
+                            <a href="mailto:business@alrixaccountants.co.uk" class="font-mono text-base font-bold text-white hover:text-[#E8B96A] underline">
+                                business@alrixaccountants.co.uk
+                            </a>
+                        </div>
+                        <div>
+                            <div class="font-mono text-[10px] uppercase text-[#E8B96A]">PRACTICE HOURS</div>
+                            <div class="font-mono text-xs text-[#F8F6F1]/85">Monday – Friday: 09:00 – 17:30 (UK)</div>
+                        </div>
+                        <div class="pt-3 border-t border-[#F8F6F1]/10 text-xs text-[#F8F6F1]/75">
+                            ✓ Strictly Confidential under UK GDPR • No Obligation
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 bg-white text-[#111816] p-6 sm:p-10 border-2 border-[#D49A45]">
+                    <form id="home-enquiry-form" onsubmit="submitEnquiryForm(event, 'home-enquiry-form', 'home-form-feedback')">
+                        <h3 class="font-serif text-3xl text-[#06211C] mb-6">Tell Us About Your Business</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block font-mono text-[11px] uppercase font-bold mb-1.5">Your Full Name *</label>
+                                <input type="text" required placeholder="e.g. James Thornton" class="w-full px-3.5 py-3 bg-[#F8F6F1] border border-[#DED9CE] text-sm focus:outline-none focus:border-[#06211C]">
+                            </div>
+                            <div>
+                                <label class="block font-mono text-[11px] uppercase font-bold mb-1.5">Email Address *</label>
+                                <input type="email" required placeholder="name@company.co.uk" class="w-full px-3.5 py-3 bg-[#F8F6F1] border border-[#DED9CE] text-sm focus:outline-none focus:border-[#06211C]">
+                            </div>
+                            <div>
+                                <label class="block font-mono text-[11px] uppercase font-bold mb-1.5">Company Name / Status</label>
+                                <input type="text" placeholder="e.g. Thornton Consulting Ltd" class="w-full px-3.5 py-3 bg-[#F8F6F1] border border-[#DED9CE] text-sm focus:outline-none focus:border-[#06211C]">
+                            </div>
+                            <div>
+                                <label class="block font-mono text-[11px] uppercase font-bold mb-1.5">Annual Turnover Band</label>
+                                <select class="w-full px-3.5 py-3 bg-[#F8F6F1] border border-[#DED9CE] text-sm focus:outline-none focus:border-[#06211C]">
+                                    <option>New Start-Up / Pre-Revenue</option>
+                                    <option>Up to £90,000</option>
+                                    <option selected>£90,000 – £250,000</option>
+                                    <option>£250,000 – £1,000,000</option>
+                                    <option>£1,000,000+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label class="block font-mono text-[11px] uppercase font-bold mb-1.5">How Can We Help You?</label>
+                            <textarea rows="3" placeholder="e.g. Looking to switch accountants, need year-end accounts & CT600, VAT returns, or director tax planning..." class="w-full p-3.5 bg-[#F8F6F1] border border-[#DED9CE] text-sm focus:outline-none focus:border-[#06211C]"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 cta-primary font-bold text-xs uppercase tracking-widest">
+                            Request My Fixed-Fee Quote &amp; Consultation →
+                        </button>
+                    </form>
+                    <div id="home-form-feedback" class="hidden p-6 bg-[#F8F6F1] border-2 border-[#06211C]"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ====================================================================
+         VIEW 2: DYNAMIC SUB-PAGE CONTAINER (SERVICES 1-6, ABOUT, CAREERS, LEGAL)
+    ==================================================================== -->
+    <section id="view-subpage" class="hidden min-h-[70vh]"></section>
+
+    <!-- ====================================================================
+         CORPORATE FOOTER
+    ==================================================================== -->
+    <footer class="bg-[#041511] text-[#F8F6F1] border-t border-[#173A32]">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-8 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 border-b border-[#173A32]">
+            <div class="lg:col-span-2">
+                <div class="flex items-center gap-3 mb-3">
+                    <img src="https://i.ibb.co/4wPLrhF4/ALRIZ.png" alt="Alrix Accountants Logo" class="h-11 w-11 object-contain bg-[#06211C] p-1 border border-[#D49A45]">
+                    <div class="font-serif text-3xl text-white">Alrix Accountants</div>
+                </div>
+                <p class="text-xs text-[#F8F6F1]/70 max-w-sm leading-relaxed mb-4">
+                    Chartered &amp; Statutory UK Accountancy Practice specialising in Limited Company Financial Accounts (FRS 102/105), Making Tax Digital VAT, Payroll, and Proactive Tax Mitigation.
+                </p>
+                <a href="mailto:business@alrixaccountants.co.uk" class="font-mono text-xs text-[#E8B96A] underline font-bold">
+                    business@alrixaccountants.co.uk
+                </a>
+            </div>
+
+            <div>
+                <div class="font-mono text-xs uppercase text-[#E8B96A] font-bold mb-3">Our Services</div>
+                <ul class="space-y-2 text-xs text-[#F8F6F1]/80">
+                    <li><button onclick="navigateTo('service-vat')" class="hover:text-[#E8B96A]">01. VAT &amp; Making Tax Digital</button></li>
+                    <li><button onclick="navigateTo('service-payroll')" class="hover:text-[#E8B96A]">02. Payroll &amp; Auto-Enrolment</button></li>
+                    <li><button onclick="navigateTo('service-bookkeeping')" class="hover:text-[#E8B96A]">03. Cloud Bookkeeping</button></li>
+                    <li><button onclick="navigateTo('service-accounts')" class="hover:text-[#E8B96A]">04. Financial Accounts</button></li>
+                    <li><button onclick="navigateTo('service-tax-planning')" class="hover:text-[#E8B96A]">05. Tax Planning &amp; Advice</button></li>
+                    <li><button onclick="navigateTo('service-personal-tax')" class="hover:text-[#E8B96A]">06. Personal Tax Returns</button></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="font-mono text-xs uppercase text-[#E8B96A] font-bold mb-3">Practice &amp; Legal</div>
+                <ul class="space-y-2 text-xs text-[#F8F6F1]/80">
+                    <li><button onclick="navigateTo('home')" class="hover:text-[#E8B96A]">Home</button></li>
+                    <li><button onclick="navigateTo('about')" class="hover:text-[#E8B96A]">About the Practice</button></li>
+                    <li><button onclick="navigateTo('careers')" class="hover:text-[#E8B96A]">Careers With Us</button></li>
+                    <li><button onclick="navigateTo('terms')" class="hover:text-[#E8B96A]">Terms of Use &amp; Disclaimer</button></li>
+                    <li><button onclick="navigateTo('cookies')" class="hover:text-[#E8B96A]">Cookie &amp; UK GDPR Policy</button></li>
+                </ul>
+            </div>
+
+            <div>
+                <div class="font-mono text-xs uppercase text-[#E8B96A] font-bold mb-3">Key UK Tax Dates</div>
+                <ul class="space-y-2 font-mono text-[11px] text-[#F8F6F1]/75">
+                    <li><strong class="text-white">05 April:</strong> UK Tax Year End</li>
+                    <li><strong class="text-white">31 January:</strong> Self Assessment Due</li>
+                    <li><strong class="text-white">9 Months:</strong> Companies House Filing</li>
+                    <li><strong class="text-white">9m + 1 Day:</strong> Corp Tax Payment</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-8 py-6 flex flex-col sm:flex-row justify-between gap-4 text-[11px] font-mono text-[#F8F6F1]/55">
+            <div>© 2026 Alrix Accountants. All rights reserved. Jurisdiction: England &amp; Wales.</div>
+            <div>Formal tax advice is provided solely pursuant to a signed Letter of Engagement.</div>
+        </div>
+    </footer>
+
+    <!-- ====================================================================
+         HIGH-CONVERTING QUOTE & CONSULTATION MODAL (ZERO ALERT() DIALOGS)
+    ==================================================================== -->
+    <div id="quote-modal" class="hidden fixed inset-0 z-50 bg-[#06211C]/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white border-2 border-[#06211C] max-w-xl w-full shadow-2xl overflow-hidden">
+            <div class="bg-[#06211C] text-[#F8F6F1] px-6 py-4 flex items-center justify-between">
+                <div>
+                    <span class="font-mono text-[10px] text-[#E8B96A] uppercase tracking-widest block">FAST-TRACK CLIENT ONBOARDING</span>
+                    <h3 id="modal-context-title" class="font-serif text-2xl text-white">Request Your Fixed-Fee Quote</h3>
+                </div>
+                <button onclick="closeQuoteModal()" class="px-3 py-1 border border-[#F8F6F1]/30 text-xs font-mono hover:bg-white hover:text-[#06211C]">
+                    CLOSE ✕
+                </button>
+            </div>
+            <div class="p-6 sm:p-8">
+                <form id="modal-enquiry-form" onsubmit="submitEnquiryForm(event, 'modal-enquiry-form', 'modal-form-feedback')">
+                    <div class="space-y-4 mb-6">
+                        <div>
+                            <label class="block font-mono text-[11px] uppercase font-bold mb-1">Your Name *</label>
+                            <input type="text" required placeholder="Full Name" class="w-full px-3.5 py-3 bg-[#F8F6F1] border border-[#DED9CE] text-sm">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-mono text-[11px] uppercase font-bold mb-1">Email Address *</label>
+                                <input type="email" required placeholder="you@company.co.uk" class="w-full px-3.5 py-3 bg-[#F8F6F1] border border-[#DED9CE] text-sm">
+                            </div>
+                            <div>
+                                <label class="block font-mono text-[11px] uppercase font-bold mb-1">UK Phone Number</label>
+                                <input type="tel" placeholder="07... / 020..." class="w-full px-3.5 py-3 bg-[#F8F6F1] border border-[#DED9CE] text-sm">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block font-mono text-[11px] uppercase font-bold mb-1">Entity Type &amp; Services Needed</label>
+                            <input type="text" placeholder="e.g. Limited Company - Year-End Accounts, VAT & Tax Saving" class="w-full px-3.5 py-3 bg-[#F8F6F1] border border-[#DED9CE] text-sm">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full py-4 cta-primary font-bold text-xs uppercase tracking-widest">
+                        Send Request — Receive Quote Within 24 Hours →
+                    </button>
+                </form>
+                <div id="modal-form-feedback" class="hidden p-5 bg-[#F8F6F1] border border-[#06211C]"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         COOKIE CONSENT BAR
+    ==================================================================== -->
+    <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 sm:right-auto sm:max-w-md z-40 bg-[#06211C] text-[#F8F6F1] border-2 border-[#D49A45] p-5 shadow-2xl">
+        <div class="font-mono text-[10px] uppercase tracking-widest text-[#E8B96A] font-bold mb-1">UK GDPR &amp; PECR COOKIE NOTICE</div>
+        <p class="text-xs text-[#F8F6F1]/85 leading-relaxed mb-4">
+            We use strictly necessary cookies to operate this website smoothly. View our <button onclick="navigateTo('cookies')" class="underline text-[#E8B96A]">Cookie Policy</button>.
+        </p>
+        <div class="flex gap-2">
+            <button onclick="document.getElementById('cookie-banner').classList.add('hidden')" class="px-4 py-2 cta-primary font-mono text-xs uppercase font-bold">
+                Accept All
+            </button>
+            <button onclick="document.getElementById('cookie-banner').classList.add('hidden')" class="px-4 py-2 border border-[#F8F6F1]/30 font-mono text-xs uppercase">
+                Essential Only
+            </button>
+        </div>
+    </div>
+
+    <!-- ====================================================================
+         STICKY MOBILE & IPHONE BOTTOM ACTION BAR (1-TAP CONVERSION)
+    ==================================================================== -->
+    <div class="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-[#06211C] border-t-2 border-[#D49A45] px-3 py-2.5 flex items-center justify-between gap-2 shadow-[0_-10px_25px_rgba(0,0,0,0.5)]">
+        <a href="mailto:business@alrixaccountants.co.uk" class="px-3 py-2.5 bg-[#0A2E27] border border-[#D49A45]/50 text-[#E8B96A] font-mono text-[11px] font-bold uppercase text-center">
+            ✉ Email Desk
+        </a>
+        <button onclick="openQuoteModal('Mobile Sticky Bar - Instant Quote')" class="flex-1 py-2.5 px-4 cta-primary font-mono text-[11px] font-bold uppercase tracking-wider text-center">
+            Get Fixed-Fee Quote →
+        </button>
+    </div>
+
+    <!-- ====================================================================
+         COMPLETE APPLICATION LOGIC, SCROLL-ZOOM ENGINE & SUB-PAGES DATA
+    ==================================================================== -->
+    <script>
+        // 1. FAQs for Home Page
+        const HOME_FAQS = [
+            {
+                q: "How easy is it to switch from our current accountant to Alrix?",
+                a: "Switching takes less than 48 hours of your time. Once you approve our fixed-fee quote, we contact your previous accountant directly for formal Professional Clearance and transfer all historical accounts, tax computations, and Xero/QuickBooks files."
+            },
+            {
+                q: "Do you charge extra for phone calls or quick tax questions?",
+                a: "Never. Every package is 100% fixed-scope and agreed upfront in writing. Unlimited routine email and phone support for company directors is included as standard."
+            },
+            {
+                q: "How do you legally reduce our UK Corporation Tax and Dividend Tax?",
+                a: "Rather than waiting until your financial year has already ended, we run a formal Pre-Year-End Tax Review at Month 9. We model optimal director salary/dividend splits, Employer Pension contributions (saving up to 26.5% Corporation Tax), and 100% Annual Investment Allowance claims."
+            },
+            {
+                q: "When are our Limited Company accounts and Corporation Tax due?",
+                a: "Statutory accounts must reach Companies House within 9 months of your year-end, and Corporation Tax is payable 9 months and 1 day after year-end. We aim to complete your accounts within 90 days of year-end so you have 6 months of advance clarity."
+            }
+        ];
+
+        function renderHomeFaqs() {
+            const container = document.getElementById('home-faq-list');
+            container.innerHTML = HOME_FAQS.map((item, idx) => `
+                <div class="p-6">
+                    <button onclick="toggleFaq(${idx})" class="w-full text-left flex items-center justify-between gap-4">
+                        <span class="font-serif text-2xl text-[#06211C]">${item.q}</span>
+                        <span id="faq-icon-${idx}" class="font-mono text-sm px-2.5 py-1 bg-[#F8F6F1] border border-[#DED9CE] font-bold">${idx === 0 ? '−' : '+'}</span>
+                    </button>
+                    <p id="faq-body-${idx}" class="${idx === 0 ? '' : 'hidden'} mt-3 text-sm text-[#525E5A] leading-relaxed">
+                        ${item.a}
+                    </p>
+                </div>
+            `).join('');
+        }
+
+        function toggleFaq(idx) {
+            const body = document.getElementById(`faq-body-${idx}`);
+            const icon = document.getElementById(`faq-icon-${idx}`);
+            const isHidden = body.classList.contains('hidden');
+            body.classList.toggle('hidden');
+            icon.textContent = isHidden ? '−' : '+';
+        }
+
+        // 2. Interactive Monitor Slide Switcher (Fixed & Properly Closed)
+        let currentActiveSlide = 0;
+        let manualSlideOverride = false;
+
+        function setMonitorSlide(slideIndex, fromScroll = false) {
+            if (!fromScroll) {
+                manualSlideOverride = true;
+                setTimeout(() => { manualSlideOverride = false; }, 3500);
+            }
+            currentActiveSlide = slideIndex;
+
+            const labels = [
+                'STAGE 1 OF 3 // PROACTIVE PRE-YEAR-END TAX REDUCTION',
+                'STAGE 2 OF 3 // ALL 6 UK STATUTORY FILINGS HANDLED',
+                'STAGE 3 OF 3 // ZOOM COMPLETE — CONTINUE DOWN INTO SITE'
+            ];
+
+            for (let i = 0; i < 3; i++) {
+                const slideEl = document.getElementById(`monitor-slide-${i}`);
+                const tabEl = document.getElementById(`screen-tab-${i}`);
+                if (slideEl) {
+                    if (i === slideIndex) {
+                        slideEl.classList.remove('hidden');
+                    } else {
+                        slideEl.classList.add('hidden');
+                    }
+                }
+                if (tabEl) {
+                    if (i === slideIndex) {
+                        tabEl.className = 'flex-1 sm:flex-initial px-2.5 py-1 font-mono text-[9.5px] sm:text-[10px] uppercase bg-[#D49A45] text-[#06211C] font-bold transition-colors';
+                    } else {
+                        tabEl.className = 'flex-1 sm:flex-initial px-2.5 py-1 font-mono text-[9.5px] sm:text-[10px] uppercase bg-[#0A2E27] text-[#F8F6F1]/75 hover:text-white transition-colors';
+                    }
+                }
+            }
+
+            const statusLabel = document.getElementById('zoom-status-label');
+            if (statusLabel && labels[slideIndex]) {
+                statusLabel.textContent = labels[slideIndex];
+            }
+        }
+
+        // 3. 3D Desk & Computer Zoom-In Scroll Engine (Works on Desktop, Tablet & Mobile!)
+        function updateDeskZoomAnimation() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            const docHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+            const totalPct = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+            const scrollBar = document.getElementById('scroll-bar');
+            if (scrollBar) scrollBar.style.width = `${totalPct}%`;
+
+            const track = document.getElementById('desk-scroll-track');
+            const homeView = document.getElementById('view-home');
+            if (!track || !homeView || homeView.classList.contains('hidden')) return;
+
+            const rect = track.getBoundingClientRect();
+            const scrollableDistance = Math.max(1, track.offsetHeight - window.innerHeight);
+            const rawProgress = -rect.top / scrollableDistance;
+            const progress = Math.max(0, Math.min(1, rawProgress));
+
+            const isDesktop = window.innerWidth >= 1024;
+            const startScale = isDesktop ? 0.78 : 0.90;
+            const endScale = isDesktop ? 1.18 : 1.04;
+            const scaleVal = startScale + (progress * (endScale - startScale));
+            const tiltVal = (isDesktop ? 11 : 6) * (1 - Math.min(1, progress * 1.35));
+
+            // 1) Zoom the Computer Monitor toward the viewer and flatten 3D tilt
+            const monitor = document.getElementById('monitor-assembly');
+            if (monitor) {
+                monitor.style.transform = `scale(${scaleVal.toFixed(3)}) rotateX(${tiltVal.toFixed(2)}deg)`;
+            }
+
+            // 2) Scale up the headline text inside the monitor as you zoom in
+            const zoomHeadlines = document.querySelectorAll('.zoom-scale-text');
+            const textScale = 1 + (progress * (isDesktop ? 0.12 : 0.05));
+            zoomHeadlines.forEach((h) => {
+                h.style.transform = `scale(${textScale.toFixed(3)})`;
+            });
+
+            // 3) Part the Fountain Pen, Working Paper & HMRC Stamp outward in 3D space
+            const leftProps = document.getElementById('desk-left-props');
+            const rightProps = document.getElementById('desk-right-props');
+            const propOffset = progress * 320;
+            const propOpacity = Math.max(0, 1 - (progress * 1.4));
+            if (leftProps) {
+                leftProps.style.transform = `translate3d(-${propOffset.toFixed(1)}px, -50%, 0) rotate(-${(progress * 14).toFixed(1)}deg) scale(${(1 + progress * 0.15).toFixed(2)})`;
+                leftProps.style.opacity = propOpacity.toFixed(2);
+            }
+            if (rightProps) {
+                rightProps.style.transform = `translate3d(${propOffset.toFixed(1)}px, -50%, 0) rotate(${(progress * 14).toFixed(1)}deg) scale(${(1 + progress * 0.15).toFixed(2)})`;
+                rightProps.style.opacity = propOpacity.toFixed(2);
+            }
+
+            // Mobile/Tablet Tax Pad & Stamp also slide outward as you zoom into the screen
+            const mobileLeftPad = document.getElementById('mobile-left-pad');
+            const mobileRightStamp = document.getElementById('mobile-right-stamp');
+            const mobilePropsWrap = document.getElementById('mobile-desk-props');
+            if (mobileLeftPad && mobileRightStamp && mobilePropsWrap) {
+                const mobShift = progress * 90;
+                mobileLeftPad.style.transform = `translateX(-${mobShift.toFixed(1)}px) rotate(-${(progress * 6).toFixed(1)}deg)`;
+                mobileRightStamp.style.transform = `translateX(${mobShift.toFixed(1)}px) rotate(${(progress * 6).toFixed(1)}deg)`;
+                mobilePropsWrap.style.opacity = Math.max(0.15, 1 - progress * 1.2).toFixed(2);
+            }
+
+            // Fade out top pitch bar & monitor stand at full zoom so you enter the screen cleanly
+            const topPitch = document.getElementById('hero-top-pitch');
+            if (topPitch && isDesktop) {
+                topPitch.style.opacity = Math.max(0.15, 1 - (progress * 1.15)).toFixed(2);
+                topPitch.style.transform = `translateY(-${(progress * 28).toFixed(1)}px)`;
+            }
+
+            const standNeck = document.getElementById('monitor-stand-neck');
+            const standBase = document.getElementById('monitor-stand-base');
+            const standOpacity = Math.max(0, 1 - (progress * 1.4));
+            if (standNeck) standNeck.style.opacity = standOpacity.toFixed(2);
+            if (standBase) standBase.style.opacity = standOpacity.toFixed(2);
+
+            // 4) Update Zoom Readout & Progress Bar
+            const zoomPct = Math.round(100 + progress * 65);
+            const zoomReadout = document.getElementById('monitor-zoom-readout');
+            if (zoomReadout) zoomReadout.textContent = `ZOOM: ${zoomPct}%`;
+
+            const barPct = Math.max(12, Math.round(progress * 100));
+            const zoomBar = document.getElementById('desk-zoom-bar');
+            if (zoomBar) zoomBar.style.width = `${barPct}%`;
+
+            const zoomPctInd = document.getElementById('zoom-pct-indicator');
+            if (zoomPctInd) zoomPctInd.textContent = `ZOOMING INTO MONITOR (${barPct}%)`;
+
+            // 5) Auto-switch Monitor Screen Slides (0 -> 1 -> 2) as you scroll into the computer
+            if (!manualSlideOverride) {
+                const targetSlide = progress < 0.34 ? 0 : (progress < 0.70 ? 1 : 2);
+                if (targetSlide !== currentActiveSlide) {
+                    setMonitorSlide(targetSlide, true);
+                }
+            }
+        }
+
+        // One-Click Automated Camera Zoom Tour Button
+        function playAutoZoomDemo() {
+            const track = document.getElementById('desk-scroll-track');
+            if (!track) return;
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            const targetScroll = track.offsetHeight - window.innerHeight;
+            const duration = 4200;
+            const startTime = performance.now();
+
+            function step(now) {
+                const elapsed = now - startTime;
+                const t = Math.min(1, elapsed / duration);
+                const ease = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+                window.scrollTo(0, ease * targetScroll);
+                updateDeskZoomAnimation();
+                if (t < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+        }
+
+        window.addEventListener('scroll', updateDeskZoomAnimation, { passive: true });
+        window.addEventListener('resize', updateDeskZoomAnimation, { passive: true });
+
+        // Scroll Reveal Observer for Cards & Sections Emerging from Monitor
+        function initScrollReveal() {
+            const items = document.querySelectorAll('.reveal-item, .card-lift');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, { threshold: 0.12 });
+            items.forEach((el) => observer.observe(el));
+        }
+
+        // 4. Interactive Tax Calculator Logic
+        function updateTaxCalculator(val) {
+            const profit = Number(val);
+            const reactive = Math.round(profit * 0.295);
+            const planned = Math.round(profit * 0.198);
+            const saved = reactive - planned;
+
+            document.getElementById('calc-profit-display').textContent = '£' + profit.toLocaleString('en-GB');
+            document.getElementById('calc-reactive-tax').textContent = '£' + reactive.toLocaleString('en-GB');
+            document.getElementById('calc-alrix-tax').textContent = '£' + planned.toLocaleString('en-GB');
+            document.getElementById('calc-saving-total').textContent = '+£' + saved.toLocaleString('en-GB') + ' / Year';
+        }
+
+        // 5. Dedicated Sub-Pages Content Repository (All 6 Services, About, Careers, Legal)
+        const SUBPAGES = {
+            'service-vat': {
+                badge: '01 // VALUE ADDED TAX & MAKING TAX DIGITAL',
+                title: 'VAT Returns, Scheme Reviews & HMRC Compliance',
+                lead: 'We manage your entire UK VAT lifecycle—from Making Tax Digital (MTD) software bridging and quarterly reconciliations to Cash Accounting scheme reviews and Postponed Import VAT.',
+                deliverables: [
+                    ['Making Tax Digital (MTD) Filings', 'Direct API transmission from Xero, QuickBooks, or spreadsheets in compliance with HMRC Notice 700/22.'],
+                    ['VAT Scheme Optimisation', 'Comparing Standard, Cash Accounting (protecting cashflow on unpaid invoices), and Flat Rate schemes.'],
+                    ['£90,000 Threshold Monitoring', 'Rolling 12-month turnover tracking so you register or deregister on time without HMRC penalties.'],
+                    ['Postponed Import VAT (PVA)', 'Reconciling monthly CDS import statements so you never suffer upfront import VAT cashflow delays.'],
+                    ['Partial Exemption Calculations', 'Quarterly and annual adjustments for property, finance, healthcare, and mixed-supply businesses.'],
+                    ['HMRC Inspection Representation', 'Pre-submission anomaly checks, VAT652 error corrections, and full representation during HMRC checks.']
+                ],
+                deadlines: '1 Calendar Month + 7 Days after the end of each VAT quarter.'
+            },
+            'service-payroll': {
+                badge: '02 // PAYE, RTI & WORKPLACE PENSIONS',
+                title: 'Payroll Bureau, Auto-Enrolment & CIS Returns',
+                lead: 'Punctual weekly, fortnightly, or monthly payroll runs with digital employee payslips, HMRC Real Time Information (RTI) submissions, and The Pensions Regulator compliance.',
+                deliverables: [
+                    ['RTI PAYE Payroll Processing', 'Gross-to-net pay, tax code updates, student loans, and on-or-before payday FPS/EPS submissions.'],
+                    ['£10,500 Employment Allowance', 'Annual eligibility review and claim submission to reduce your Employer National Insurance bill.'],
+                    ['Workplace Pension Auto-Enrolment', 'Staff eligibility assessments, NEST/Aviva uploads, and 3-year Re-declaration of Compliance.'],
+                    ['Director Optimum Payroll', 'Calibrating director salaries to secure State Pension qualifying years while minimising NICs.'],
+                    ['P60s, P45s & P11D Benefits', 'Year-end employee P60 certificates and P11D company car / medical benefit returns by 6 July.'],
+                    ['CIS Contractor Monthly Returns', 'Subcontractor UTR verification, 20%/30% deduction statements, and CIS300 filings by the 19th.']
+                ],
+                deadlines: 'FPS on or before payday • PAYE remittance by the 22nd of the following month.'
+            },
+            'service-bookkeeping': {
+                badge: '03 // DIGITAL CLOUD LEDGERS',
+                title: 'Cloud Bookkeeping, Bank Reconciliation & Monthly Controls',
+                lead: 'Clean, audit-ready Xero and QuickBooks bookkeeping so you know your exact profit, cashflow, and tax reserve at the end of every single month.',
+                deliverables: [
+                    ['Xero & QuickBooks Architecture', 'Custom UK GAAP chart of accounts setup, historical cleanup, and automated Open Banking feeds.'],
+                    ['Digital Receipt & Invoice Capture', 'OCR extraction of supplier bills and VAT receipts stored digitally for the mandatory 6-year period.'],
+                    ['Weekly Bank Reconciliations', 'Reconciling current accounts, corporate cards, Stripe/Shopify/PayPal clearing, and FX accounts.'],
+                    ['Director Loan Account Tracking', 'Monthly monitoring of personal drawings to prevent unexpected 33.75% Section 455 tax charges.'],
+                    ['Aged Debtor & Creditor Control', 'Clear visibility of unpaid customer invoices and upcoming supplier commitments.'],
+                    ['Monthly Management Reports', 'Simple P&L, Balance Sheet, and rolling Corporation Tax & VAT cash reserve summaries.']
+                ],
+                deadlines: 'Statutory duty under Companies Act 2006 Section 386 to retain records for 6 years.'
+            },
+            'service-accounts': {
+                badge: '04 // STATUTORY YEAR-END REPORTING',
+                title: 'Financial Accounts (FRS 102 / 105) & Companies House Filing',
+                lead: 'Prepared within 90 days of your year-end so you have six months of advance visibility before a single penny of Corporation Tax is due.',
+                deliverables: [
+                    ['FRS 102 & FRS 105 Accounts', 'Full statutory financial statements prepared strictly to UK GAAP standards for Ltds and LLPs.'],
+                    ['Privacy-Protecting Filleted Accounts', 'Removing the detailed Profit & Loss statement from the public Companies House register.'],
+                    ['iXBRL & CT600 Tax Return', 'Full Inline XBRL tagged accounts and Company Tax Return transmitted electronically to HMRC.'],
+                    ['Accruals, Prepayments & Assets', 'Technical adjustments for depreciation, work-in-progress, bad debts, and deferred taxation.'],
+                    ['Dividend Vouchers & Board Minutes', 'Formal minutes approving the accounts and compliant dividend vouchers for shareholders.'],
+                    ['CS01 Confirmation Statement', 'Annual maintenance of your statutory registers, PSC disclosures, and SIC codes.']
+                ],
+                deadlines: 'Companies House filing: 9 Months post year-end • Corp Tax payment: 9 Months + 1 Day.'
+            },
+            'service-tax-planning': {
+                badge: '05 // PROACTIVE TAX ENGINEERING',
+                title: 'Corporation Tax Mitigation & Remuneration Strategy',
+                lead: 'Legitimate, statute-backed UK tax planning executed 60 to 90 days before your financial year closes—when every relief lever is still available.',
+                deliverables: [
+                    ['Month-9 Pre-Year-End Tax Review', 'Forecasting your full-year profit before year-end to execute timely tax-saving actions.'],
+                    ['19%–25% Marginal Relief Modelling', 'Managing the 26.5% marginal band (£50k–£250k) and Associated Company threshold rules.'],
+                    ['Salary, Dividend & Pension Mix', 'Balancing PAYE, dividends, and tax-free Employer Pension contributions (up to £60,000/yr).'],
+                    ['100% Full Expensing & £1m AIA', 'Timing machinery, equipment, and commercial fit-out purchases for maximum upfront deduction.'],
+                    ['Holding Companies & Reorganisations', 'Setting up tax-efficient group structures and HMRC statutory clearances.'],
+                    ['Exit & Business Asset Disposal Relief', 'Protecting your 10%/14% BADR Capital Gains qualifying status ahead of a company sale.']
+                ],
+                deadlines: 'Employer pension contributions and capital purchases must clear before your year-end date.'
+            },
+            'service-personal-tax': {
+                badge: '06 // PRIVATE CLIENT & LANDLORD TAX',
+                title: 'HMRC Self Assessment (SA100), Directors & Landlords',
+                lead: 'Discreet, partner-reviewed personal tax returns prepared months ahead of the 31 January deadline, ensuring every allowance and relief is claimed.',
+                deliverables: [
+                    ['Comprehensive SA100 Filing', 'Electronic filing of Employment, Dividend, Self-Employed, Partnership, and Property schedules.'],
+                    ['£100k–£125k 60% Tax Trap Relief', 'Restoring your £12,570 tax-free Personal Allowance via pension and Gift Aid planning.'],
+                    ['Landlord & Section 24 Schedules', 'UK property accounts, mortgage interest tax credits, and married couple Form 17 splits.'],
+                    ['Payment on Account Reductions', 'Lowering your January and July Payments on Account where dividends or profits have fallen.'],
+                    ['60-Day Residential Property CGT', 'Rapid calculation and filing of UK property disposal Capital Gains returns within 60 days.'],
+                    ['EIS / SEIS & Tax Code Audits', 'Claiming 30%–50% investor reliefs and correcting inaccurate HMRC PAYE tax codes.']
+                ],
+                deadlines: 'UK Tax Year runs 6 April to 5 April • SA100 Online Filing & Balancing Payment: 31 January.'
+            }
+        };
+
+        function navigateTo(route) {
+            const homeEl = document.getElementById('view-home');
+            const subEl = document.getElementById('view-subpage');
+            const mobileDrawer = document.getElementById('mobile-drawer');
+            if (mobileDrawer) mobileDrawer.classList.add('hidden');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (route === 'home') {
+                subEl.classList.add('hidden');
+                homeEl.classList.remove('hidden');
+                return;
+            }
+
+            homeEl.classList.add('hidden');
+            subEl.classList.remove('hidden');
+
+            if (SUBPAGES[route]) {
+                const data = SUBPAGES[route];
+                subEl.innerHTML = `
+                    <div class="bg-[#06211C] text-[#F8F6F1] py-16 sm:py-20 border-b border-[#173A32]">
+                        <div class="max-w-[1300px] mx-auto px-4 sm:px-8">
+                            <button onclick="navigateTo('home')" class="font-mono text-xs text-[#E8B96A] hover:underline mb-6 inline-block">← BACK TO HOME & WORKSTATION</button>
+                            <div class="font-mono text-xs text-[#E8B96A] uppercase tracking-widest mb-2">${data.badge}</div>
+                            <h1 class="font-serif text-4xl sm:text-6xl text-white mb-4">${data.title}</h1>
+                            <p class="text-base sm:text-lg text-[#F8F6F1]/80 max-w-3xl mb-8">${data.lead}</p>
+                            <div class="flex flex-wrap gap-4">
+                                <button onclick="openQuoteModal('${data.title}')" class="px-7 py-4 cta-primary font-bold text-xs uppercase tracking-wider">
+                                    Get a Fixed-Fee Quote for This Service →
+                                </button>
+                                <a href="mailto:business@alrixaccountants.co.uk" class="px-6 py-4 border border-[#F8F6F1]/30 font-mono text-xs uppercase">
+                                    ✉ business@alrixaccountants.co.uk
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="max-w-[1300px] mx-auto px-4 sm:px-8 py-16">
+                        <div class="mb-6 font-mono text-xs uppercase text-[#06211C] font-bold">KEY STATUTORY DEADLINE: <span class="text-[#B87D28]">${data.deadlines}</span></div>
+                        <h2 class="font-serif text-4xl text-[#06211C] mb-8">What Is Included in Your Fixed-Scope Package:</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+                            ${data.deliverables.map((d, i) => `
+                                <div class="bg-white border border-[#DED9CE] p-7">
+                                    <div class="font-mono text-xs font-bold text-[#D49A45] mb-2">DELIVERABLE 0${i + 1}</div>
+                                    <h3 class="font-serif text-2xl text-[#06211C] mb-2">${d[0]}</h3>
+                                    <p class="text-sm text-[#525E5A] leading-relaxed">${d[1]}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="bg-[#06211C] text-[#F8F6F1] p-8 sm:p-10 border-2 border-[#D49A45] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                            <div>
+                                <h3 class="font-serif text-3xl text-white">Ready to hand this over to Alrix Accountants?</h3>
+                                <p class="text-sm text-[#F8F6F1]/75 mt-1">Fixed monthly pricing • Partner-reviewed • 48-hour switching service.</p>
+                            </div>
+                            <button onclick="openQuoteModal('${data.title}')" class="px-7 py-4 cta-primary font-bold text-xs uppercase tracking-wider shrink-0">
+                                Request Your Quote Now →
+                            </button>
+                        </div>
+                    </div>
+                `;
+            } else if (route === 'about') {
+                subEl.innerHTML = `
+                    <div class="bg-[#06211C] text-[#F8F6F1] py-16 sm:py-20">
+                        <div class="max-w-[1200px] mx-auto px-4 sm:px-8">
+                            <button onclick="navigateTo('home')" class="font-mono text-xs text-[#E8B96A] hover:underline mb-6 inline-block">← BACK TO HOME</button>
+                            <div class="font-mono text-xs text-[#E8B96A] uppercase tracking-widest mb-2">WHY HIRE ALRIX ACCOUNTANTS</div>
+                            <h1 class="font-serif text-4xl sm:text-6xl text-white mb-4">Big-4 Technical Rigour. Personal Partner Attention.</h1>
+                            <p class="text-base sm:text-lg text-[#F8F6F1]/80 max-w-3xl">We built Alrix Accountants to give UK Limited Companies, LLPs, and private landlords proactive tax engineering and spotless statutory compliance without hourly billing surprises.</p>
+                        </div>
+                    </div>
+                    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 py-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white border border-[#DED9CE] p-8">
+                            <div class="font-mono text-xs text-[#D49A45] font-bold mb-2">01 // PROACTIVE PLANNING</div>
+                            <h3 class="font-serif text-3xl text-[#06211C] mb-2">Month-9 Tax Reviews</h3>
+                            <p class="text-sm text-[#525E5A]">We review your profit 90 days before year-end so you can legally reduce Corporation Tax before the period closes.</p>
+                        </div>
+                        <div class="bg-white border border-[#DED9CE] p-8">
+                            <div class="font-mono text-xs text-[#D49A45] font-bold mb-2">02 // TRANSPARENT FEES</div>
+                            <h3 class="font-serif text-3xl text-[#06211C] mb-2">100% Fixed Pricing</h3>
+                            <p class="text-sm text-[#525E5A]">Every deliverable is itemised in your Letter of Engagement. We never charge extra for phone calls or emails.</p>
+                        </div>
+                        <div class="bg-white border border-[#DED9CE] p-8">
+                            <div class="font-mono text-xs text-[#D49A45] font-bold mb-2">03 // QUALITY CONTROL</div>
+                            <h3 class="font-serif text-3xl text-[#06211C] mb-2">Two-Partner Sign-Off</h3>
+                            <p class="text-sm text-[#525E5A]">Every CT600, VAT return, and FRS 102 balance sheet undergoes a two-stage senior review prior to HMRC filing.</p>
+                        </div>
+                    </div>
+                `;
+            } else if (route === 'careers') {
+                subEl.innerHTML = `
+                    <div class="bg-[#06211C] text-[#F8F6F1] py-16">
+                        <div class="max-w-[1200px] mx-auto px-4 sm:px-8">
+                            <button onclick="navigateTo('home')" class="font-mono text-xs text-[#E8B96A] hover:underline mb-6 inline-block">← BACK TO HOME</button>
+                            <h1 class="font-serif text-4xl sm:text-6xl text-white mb-4">Careers at Alrix Accountants</h1>
+                            <p class="text-base text-[#F8F6F1]/80 max-w-2xl">Join a high-standards UK statutory accounting and tax advisory practice.</p>
+                        </div>
+                    </div>
+                    <div class="max-w-[1200px] mx-auto px-4 sm:px-8 py-14 space-y-8">
+                        <div class="bg-white border-2 border-[#06211C] p-8">
+                            <div class="font-mono text-xs text-[#D49A45] font-bold uppercase mb-2">CURRENT RECRUITMENT STATUS NOTICE</div>
+                            <p class="font-serif text-2xl text-[#06211C] leading-relaxed">
+                                “Recruitment Status: We are not actively hiring at this moment. Our technical and advisory teams are currently at full capacity. However, we welcome speculative introductions from exceptional UK-qualified professionals (ACA, ACCA, CTA, AAT) for future cohorts—please forward your curriculum vitae in confidence to <a href="mailto:business@alrixaccountants.co.uk" class="underline text-[#B87D28]">business@alrixaccountants.co.uk</a>.”
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <h2 class="font-serif text-3xl text-[#06211C]">Recently Filled Positions</h2>
+                            <div class="bg-white border border-[#DED9CE] p-6 flex flex-col sm:flex-row justify-between gap-4">
+                                <div>
+                                    <div class="font-serif text-2xl text-[#06211C]">1. Senior Statutory Accounts &amp; Corporate Tax Manager</div>
+                                    <div class="text-xs text-[#525E5A] mt-1">United Kingdom / Hybrid • ACA / ACCA Qualified • FRS 102 &amp; CT600 Portfolio Lead</div>
+                                </div>
+                                <span class="font-mono text-xs px-3 py-1.5 bg-[#F8F6F1] border border-[#DED9CE] self-start">[POSITION CLOSED — FILLED]</span>
+                            </div>
+                            <div class="bg-white border border-[#DED9CE] p-6 flex flex-col sm:flex-row justify-between gap-4">
+                                <div>
+                                    <div class="font-serif text-2xl text-[#06211C]">2. Client Payroll &amp; Workplace Pensions Specialist</div>
+                                    <div class="text-xs text-[#525E5A] mt-1">United Kingdom • CIPP / AAT Qualified • Multi-Client RTI PAYE, CIS &amp; Auto-Enrolment</div>
+                                </div>
+                                <span class="font-mono text-xs px-3 py-1.5 bg-[#F8F6F1] border border-[#DED9CE] self-start">[POSITION CLOSED — FILLED]</span>
+                            </div>
+                            <div class="bg-white border border-[#DED9CE] p-6 flex flex-col sm:flex-row justify-between gap-4">
+                                <div>
+                                    <div class="font-serif text-2xl text-[#06211C]">3. Cloud Bookkeeping &amp; MTD VAT Associate</div>
+                                    <div class="text-xs text-[#525E5A] mt-1">United Kingdom • AAT Level 3/4 • Xero / QuickBooks Reconciliations &amp; Quarterly VAT</div>
+                                </div>
+                                <span class="font-mono text-xs px-3 py-1.5 bg-[#F8F6F1] border border-[#DED9CE] self-start">[POSITION CLOSED — FILLED]</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (route === 'terms' || route === 'cookies') {
+                subEl.innerHTML = `
+                    <div class="max-w-[1000px] mx-auto px-4 sm:px-8 py-16">
+                        <button onclick="navigateTo('home')" class="font-mono text-xs text-[#06211C] underline mb-6 inline-block">← BACK TO HOME</button>
+                        <div class="bg-white border-2 border-[#06211C] p-8 sm:p-12 space-y-6">
+                            <h1 class="font-serif text-4xl text-[#06211C]">${route === 'terms' ? 'Terms of Use & Professional Disclaimer' : 'Cookie Policy & UK GDPR Notice'}</h1>
+                            <p class="text-sm text-[#525E5A] leading-relaxed">
+                                <strong>Important Statutory Disclaimer:</strong> All information and interactive tax illustrations on the Alrix Accountants website are provided for general United Kingdom informational guidance only and do not constitute formal accounting or tax advice. A formal advisor-client relationship commences solely upon completion of statutory Anti-Money Laundering (AML) verification and execution of a signed Letter of Engagement governed by the laws of England and Wales.
+                            </p>
+                            <p class="text-sm text-[#525E5A] leading-relaxed">
+                                <strong>UK GDPR &amp; PECR Compliance:</strong> We respect your confidentiality and use strictly necessary session cookies to maintain security and navigation preferences. For data protection enquiries, contact <a href="mailto:business@alrixaccountants.co.uk" class="underline">business@alrixaccountants.co.uk</a>.
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function scrollToSection(sectionId) {
+            navigateTo('home');
+            setTimeout(() => {
+                const el = document.getElementById(sectionId);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }, 80);
+        }
+
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function openQuoteModal(contextTitle) {
+            const modal = document.getElementById('quote-modal');
+            const titleEl = document.getElementById('modal-context-title');
+            if (contextTitle && titleEl) titleEl.textContent = contextTitle;
+            modal.classList.remove('hidden');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quote-modal').classList.add('hidden');
+        }
+
+        function submitEnquiryForm(event, formId, feedbackId) {
+            event.preventDefault();
+            const form = document.getElementById(formId);
+            const feedback = document.getElementById(feedbackId);
+            const ref = 'ALX-UK-' + Math.floor(100000 + Math.random() * 900000);
+            form.classList.add('hidden');
+            feedback.classList.remove('hidden');
+            feedback.innerHTML = `
+                <div class="font-mono text-xs text-[#0A6E4E] font-bold uppercase mb-1">✓ ENQUIRY RECEIVED // REF: ${ref}</div>
+                <div class="font-serif text-2xl text-[#06211C] mb-2">Thank you. Your fixed-fee quote is being prepared.</div>
+                <p class="text-xs text-[#525E5A] mb-4">A Senior Partner at Alrix Accountants will review your details and reply within 1 UK business day. You can also email us directly at <a href="mailto:business@alrixaccountants.co.uk" class="underline font-bold">business@alrixaccountants.co.uk</a>.</p>
+            `;
+        }
+
+        // Initialise on load
+        renderHomeFaqs();
+        initScrollReveal();
+        updateDeskZoomAnimation();
+    </script>
+</body>
+</html>
